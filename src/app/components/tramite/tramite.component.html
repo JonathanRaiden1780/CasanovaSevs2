@@ -94,8 +94,8 @@
                         <button id="pregunta10" name="pregunta10" type="button" class="btn btn-outline-secondary col-md-2" mat-button mat-raised-button matStepperNext value="1" (click)="p8ex(0)"><fa-icon [icon]="faTired" class="fa-6x" style="color: red"></fa-icon></button>
                     </div>
                 </mat-step>
-                <mat-step state="thanks" editable="false">
-                        <div class="col-md-5 mx-auto mt-5">
+                <mat-step state="thanks" editable="false"> 
+                        <div class="col-md-5 mx-auto mt-5 thanks">
                             <form #formguardar="ngForm" (ngSubmit)="sum();onGuardarEncuesta(formguardar)">
                                 <div class="card mb-3" style="max-width: 20rem;" style="background-color: #2a206f">  
                                     <div class="card-header text-center">
@@ -103,7 +103,7 @@
                                     </div>
                                     <div class="card-header text-center text-white"><h5><strong>¡¡Muchas gracias por tu evaluación!!</strong></h5></div>
                                     <div class="card-body text-center text-white form-group"><h5><strong>¡¡Tu opinión es muy importante para nosotros!!</strong></h5><br><h5><strong>Por favor regresa el dispositivo a tu asesor más cercano</strong></h5></div>
-                                    <button type="submit" value="Guardar" class="btn btn-warning text-center btn-block"  ><fa-icon [icon]="faVoteYea" class="fa-2x"></fa-icon><h4>Nueva Encuesta</h4></button>
+                                    <button type="submit" value="Guardar" class="btn btn-warning text-center btn-block"  ><fa-icon [icon]="faVoteYea" class="fa-2x"></fa-icon><h4>Finalizar Encuesta</h4></button>
                                 </div>
                             </form>
                         </div>

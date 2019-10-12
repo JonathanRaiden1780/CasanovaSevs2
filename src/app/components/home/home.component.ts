@@ -31,56 +31,21 @@ export class HomeComponent implements OnInit {
   
 onEncuesta({value}: {value: EncuestaexInterface}){
   this.name=this.idenc.toUpperCase();
-
-  this.afs.firestore.doc('Encuestaexes/'+this.name).get()
-      .then(docSnapshot => {
-        if (docSnapshot.exists == true) {
-          this.afs.collection('Encuestaexes').doc(this.name).valueChanges().pipe(take(1)).subscribe(res => {this.arrass(res)} );  
-        }
-        else{
-          this.afs.firestore.doc('Encuestareps/'+this.name).get()
-          .then(docSnapshot => {
-            if (docSnapshot.exists == true) {
-              this.afs.collection('Encuestareps').doc(this.name).valueChanges().pipe(take(1)).subscribe(res => {this.arrass(res)} );  
-            }
-            else{
-              this.afs.firestore.doc('Encuestatram/'+this.name).get().
-              then(docSnapshot => {
-                if(docSnapshot.exists == true){
-                  this.afs.collection('Encuestatram').doc(this.name).valueChanges().pipe(take(1)).subscribe(res => {this.arrass(res)} );  
-                }
-                else{
-                  this.afs.firestore.doc('EncuestaexesC/'+this.name).get().
-                  then(docSnapshot => {
-                    if(docSnapshot.exists == true){
-                      this.afs.collection('EncuestaexesC').doc(this.name).valueChanges().pipe(take(1)).subscribe(res => {this.arrass(res)} );  
-                    }
-                      else{
-                        this.afs.firestore.doc('EncuestarepsC/'+this.name).get().
-                        then(docSnapshot => {
-                          if(docSnapshot.exists == true){
-                            this.afs.collection('EncuestarepsC').doc(this.name).valueChanges().pipe(take(1)).subscribe(res => {this.arrass(res)} );  
-                          }
-                          else{
-                            this.afs.firestore.doc('EncuestatramC/'+this.name).get().
-                            then(docSnapshot => {
-                              if(docSnapshot.exists == true){
-                                this.afs.collection('EncuestatramC').doc(this.name).valueChanges().pipe(take(1)).subscribe(res => {this.arrass(res)} );  
-                              }
-                            });
-                          }
-                        });
-                      }
-                  });
-                }
-              });
-            }
-          });
+  this.afs.firestore.doc('Encuestareps/'+this.name).get()
+  .then(docSnapshot => {
+    if (docSnapshot.exists == true) {
+      this.afs.collection('Encuestareps').doc(this.name).valueChanges().pipe(take(1)).subscribe(res => {this.arrass(res)} );  
+    }
+    else{
+      this.afs.firestore.doc('EncuestarepsC/'+this.name).get().
+      then(docSnapshot => {
+        if(docSnapshot.exists == true){
+          this.afs.collection('EncuestarepsC').doc(this.name).valueChanges().pipe(take(1)).subscribe(res => {this.arrass(res)} );  
         }
       });
-
-  //this.afs.collection('Encuestaexes').doc(this.name).valueChanges().pipe(take(1)).subscribe(res => {this.arrass(res)} );  
-  }
+    }
+  });
+}
   arrass(x: EncuestaexInterface): string {
     this.tipo= x.tipo;
     if(x.contestada == true){
@@ -89,8 +54,6 @@ onEncuesta({value}: {value: EncuestaexInterface}){
     else{
       this.router.navigate(['/'+ this.tipo+'/'+this.name]);
     }
-   //////console.log(this.tipo);
-   //////console.log(this.nomUsuario);
    return this.tipo;
  }
 

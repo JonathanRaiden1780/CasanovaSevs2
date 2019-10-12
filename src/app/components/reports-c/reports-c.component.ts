@@ -4,7 +4,6 @@ import { faChartLine } from '@fortawesome/free-solid-svg-icons';
 import { ChartType, ChartOptions, ChartDataSets } from 'chart.js';
 import { SingleDataSet, Label, monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip } from 'ng2-charts';
 import { EncuestaexInterface } from 'src/app/Models/Encuestaex';
-import { Observable } from 'rxjs';
 import { EncuestaService } from 'src/app/services/encuesta.service';
 import { take } from 'rxjs/operators';
 
@@ -21,8 +20,8 @@ public pieChartOptions: ChartOptions = {
 public pieChartType: ChartType = 'pie';
 public pieChartLegend = false;
 public pieChartPlugins = [];
-public pieChartLabels: Label[] = ['Muy Malo', 'Malo', 'Regular', ['Mas', 'ó', 'Menos'],  'Bueno'];
- // P1 El tiempo que trasncurrio para que lo atendieran fue...
+public pieChartLabels: Label[] = ['Muy Malo', 'Malo', 'Regular', 'Bueno',  'Muy Bueno'];
+// P1 El tiempo que trasncurrio para que lo atendieran fue...
 public pieChartDataP1: SingleDataSet = [9, 6, 6, 3, 6];
   // P2 ¿Como calificaría la imagen de nuestras instalaciones?
 public pieChartDataP2: SingleDataSet = [15, 3, 3, 3, 6];
@@ -148,20 +147,11 @@ constructor(
  listp1mm: string[]; listp2mm: string[]; listp3mm: string[]; listp4mm: string[]; listp5mm: string[]; listp6mm: string[]; listp7mm: string[]; listp8mm: string[]; listp9mm: string[]; listp10mm: string[];
 
 ngOnInit() {
-  this.getData1();
-  this.getData2();
-  this.getData3();  
+  this.getData2();  
   this.cont()
 }
 
-getData1() {
- //get coll
-     this.afs.collection('EncuestaexesC').valueChanges().subscribe((encuesta) => {
-    this.rows1 = encuesta ;
-  });
-}
 cont() {
-
   this.afs.collection('typeC').doc('VI0001').valueChanges().pipe(take(1)).subscribe(res => {this.arras(res); } );
 }
 arras( x: EncuestaexInterface) {
@@ -249,12 +239,6 @@ getData2() {
     this.rows2 = encuesta ;
   });
 }
-getData3() {
-  this.afs.collection('EncuestatramC').valueChanges().subscribe((encuesta) => {
-    this.rows3 = encuesta ;
-  });
-}
-
 // events
 public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
   //console.log(event, active);

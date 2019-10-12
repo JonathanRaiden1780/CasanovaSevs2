@@ -43,7 +43,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
   { path: 'encuesta', component: EncuestaComponent},
   { path: 'navbardown', component: NavbardownComponent},
-  { path: 'adminc', component: AdmincComponent},
+  { path: 'adminc', component: AdmincComponent, canActivate: [AuthGuard]},
   { path: '**', component: Page404Component }
 ];
 

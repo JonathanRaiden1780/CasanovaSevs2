@@ -105,7 +105,7 @@
                                     <div class="card-body text-center faicon">
                                         <span class="fa-layers fa-fw fa-6x">
                                             <fa-icon [icon]="faBoxes"></fa-icon>
-                                                <span class="fa-layers-counter" style="background:#fd5f00; font-size-adjust: inherit;">{{contadorre + contadorrep + contadortram}}</span>
+                                                <span class="fa-layers-counter" style="background:#fd5f00; font-size-adjust: inherit;">{{contadorrep}}</span>
                                         </span>
                                     </div>
                                 </div>
@@ -123,7 +123,7 @@
                             <div class="col-sm-6">
                                 <div class="card">
                                     <div class="card-header bg-warning text-white text-center ">
-                                        <h5 class="h5-responsive"><strong>Promedio Actual</strong></h5>
+                                        <h5 class="h5-responsive"><strong>Promedio<br>Actual</strong></h5>
                                     </div>
                                     <div class="card-body text-center faicon">
                                         <span class="fa-layers fa-fw fa-6x">
@@ -136,7 +136,7 @@
                             <div class="col-sm-6">
                                 <div class="card">
                                     <div class="card-header text-white text-center" style="background-color: #5AC041 ">
-                                        <h5 class="h5-responsive"><strong>Meta Actual</strong></h5>
+                                        <h5 class="h5-responsive"><strong>Meta<br>Actual</strong></h5>
                                     </div>
                                     <div class="card-body text-center faicon">
                                         <span class="fa-layers fa-fw fa-6x">
@@ -175,37 +175,6 @@
                         <h5 class="h5-responsive"><strong>Calificaciones Servicios</strong></h5>
                     </div>
                     <div class="card-body">
-                        <!-- Express -->
-                        <table class="table table-hover table-bordered table-sm"> 
-                                <thead class="thead-dark">
-                                    <tr class="text-center text-white">
-                                        <th scope="col">Express</th>
-                                        <th scope="col" title="El tiempo que transcurrió para que lo atendieran fue:">P 1</th>
-                                        <th scope="col" title="Después de realizado el diagnóstico del vehículo, ¿se le proporcionó la información detallada del trabajo a realizar y el tiempo estimado de entrega?">P 2</th>
-                                        <th scope="col" title="El tiempo que transcurrió para la entrega de su vehículo fue:">P 3</th>
-                                        <th scope="col" title="¿Cómo calificaría la imagen de nuestras instalaciones?">P 4</th>
-                                        <th scope="col" title="La atención que recibió de nuestro asesor de servicio fue….">P 5</th>
-                                        <th scope="col" title="Considera que la imagen de nuestro asesor de servicio es…">P 6</th>
-                                        <th scope="col" title="Le entregaron su vehículo...">P 7</th>
-                                        <th scope="col" title="La experiencia en general de su visita a Casanova fue…">P 8</th>
-                                        <th scope="col">Calif</th>
-                                    </tr> 
-                                </thead>
-                                <tbody>
-                                    <tr class="table-success text-center">
-                                        <td></td>
-                                        <td>{{prome1}}</td>
-                                        <td>{{prome2}}</td>
-                                        <td>{{prome3}}</td>
-                                        <td>{{prome4}}</td>
-                                        <td>{{prome5}}</td>
-                                        <td>{{prome6}}</td>
-                                        <td>{{prome7}}</td>
-                                        <td>{{prome8}}</td>
-                                        <td>{{promeex}}</td>
-                                    </tr>
-                                </tbody>
-                        </table>
                         <!-- Reparaciones -->
                         <table class="table table-hover table-bordered table-sm"> 
                             <thead class="thead-dark">
@@ -237,37 +206,6 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <!-- Trámites -->
-                        <table class="table table-hover table-bordered table-sm"> 
-                            <thead class="thead-dark">
-                                <tr class="text-center text-white" style="background-color: gray">
-                                    <th scope="col" >Trámites</th>
-                                    <th scope="col" title="El tiempo que transcurrió para que lo atendieran fue:">P 1</th>
-                                    <th scope="col" title="¿Se le informó la fecha de la cita para la verificación de su vehículo?">P 2</th>
-                                    <th scope="col" title="¿Se cumplió con la fecha promesa de entrega?">P 3</th>
-                                    <th scope="col" title="¿Cómo calificaría la imagen de nuestras instalaciones?">P 4</th>
-                                    <th scope="col" title="La atención que recibió de nuestro asesor de servicio fue….">P 5</th>
-                                    <th scope="col" title="Considera que la imagen de nuestro asesor de servicio es…">P 6</th>
-                                    <th scope="col" title="Le entregaron su vehículo...">P 7</th>
-                                    <th scope="col" title="La experiencia en general de su visita a Casanova fue…">P 8</th>
-                                    <th scope="col" title="">Calif</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="table-info text-center">
-                                    <td></td>
-                                    <td>{{prometra1}}</td>
-                                    <td>{{prometra2}}</td>
-                                    <td>{{prometra3}}</td>
-                                    <td>{{prometra4}}</td>
-                                    <td>{{prometra5}}</td>
-                                    <td>{{prometra6}}</td>
-                                    <td>{{prometra7}}</td>
-                                    <td>{{prometra8}}</td>
-                                    <td>{{prometras}}</td>
-                                </tr>
-                            </tbody>
-                        </table>
                     </div>
                 </div>
             </div>
@@ -278,18 +216,7 @@
                         <!-- Calificaciones Altas -->
                         <div class="col-sm-6">
                             <div class="card text-center">
-                                <div class="card-header text-center text-white" style="background-color: #2a206f; font-size: 1rem"><strong>Calificaciones Altas</strong></div>
-                                    <div class="card text-center">
-                                        <div class="card-header text-white" style="background-color: #2e5a1c">
-                                            <strong style="font-size: 1rem; font-size-adjust: initial">Express</strong>
-                                        </div>
-                                        <div class="card-header text-center faicon" style="background-color: #edf0c7" >
-                                            <span class="fa-layers fa-fw fa-5x">
-                                                <fa-icon [icon]="faThumbsUp" style="color: #4e9525"></fa-icon>
-                                                <span class="fa-layers-counter" style="background: #1a3263; font-size-adjust: inherit;"><strong>{{ins}}</strong></span>
-                                            </span>
-                                        </div>
-                                    </div>
+                                <div class="card-header text-center text-white" style="background-color: #2a206f; font-size: 1rem"><strong>Calificación más alta</strong></div>
                                     <div class="card text-center">
                                         <div class="card-header text-white" style="background-color: #2e5a1c">
                                             <strong style="font-size: 1rem; font-size-adjust: initial">Reparaciones</strong>
@@ -301,17 +228,6 @@
                                             </span>
                                         </div>
                                     </div>
-                                    <div class="card text-center">
-                                        <div class="card-header text-white" style="background-color: #2e5a1c">
-                                            <strong style="font-size: 1rem; font-size-adjust: initial">Trámite</strong>
-                                        </div>
-                                        <div class="card-header text-center faicon" style="background-color: #edf0c7">
-                                            <span class="fa-layers fa-fw fa-5x">
-                                                <fa-icon [icon]="faThumbsUp" style="color: #4e9525"></fa-icon>
-                                                <span class="fa-layers-counter" style="background: #1a3263; font-size-adjust: inherit;"><strong>{{instra}}</strong></span>
-                                            </span>
-                                        </div>
-                                    </div>
                             </div>
                         </div>
                         <!-- Calificaciones Bajas -->
@@ -320,34 +236,12 @@
                                 <div class="card-header text-center text-white" style="background-color: #2a206f; font-size: 1rem"><strong>Calificación más baja</strong></div>
                                 <div class="card text-center">
                                     <div class="card-header text-white" style="background-color: #f05a28">
-                                        <strong style="font-size: 1rem; font-size-adjust: initial">Express</strong>
-                                    </div>
-                                    <div class="card-header text-center faicon" style="background-color: #edf0c7">
-                                        <span class="fa-layers fa-fw fa-5x">
-                                            <fa-icon [icon]="faThumbsDown" style="color: #f7931e"></fa-icon>
-                                            <span class="fa-layers-counter" style="background: #1a3263; font-size-adjust: inherit;"><strong>{{ins2}}</strong></span>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="card text-center">
-                                    <div class="card-header text-white" style="background-color: #f05a28">
                                         <strong style="font-size: 1rem; font-size-adjust: initial">Reparaciones</strong>
                                     </div>
                                     <div class="card-header text-center faicon" style="background-color: #edf0c7">
                                         <span class="fa-layers fa-fw fa-5x">
                                             <fa-icon [icon]="faThumbsDown" style="color: #f7931e"></fa-icon>
                                             <span class="fa-layers-counter" style="background: #1a3263; font-size-adjust: inherit;"><strong>{{insre2}}</strong></span>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="card text-center">
-                                    <div class="card-header text-white" style="background-color: #f05a28">
-                                        <strong style="font-size: 1rem; font-size-adjust: initial">Trámites</strong>
-                                    </div>
-                                    <div class="card-header text-center faicon" style="background-color: #edf0c7">
-                                        <span class="fa-layers fa-fw fa-5x">
-                                            <fa-icon [icon]="faThumbsDown" style="color: #f7931e"></fa-icon>
-                                            <span class="fa-layers-counter" style="background: #1a3263; font-size-adjust: inherit;"><strong>{{instra2}}</strong></span>
                                         </span>
                                     </div>
                                 </div>

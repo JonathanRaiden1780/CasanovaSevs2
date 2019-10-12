@@ -191,60 +191,7 @@
     <div class="card border-success mt-3 mr-3 ml-3 mb-3">
     <div class="card-header text-center text-white" style="background-color: #1a3263"><h2><strong>Resumen de Preguntas</strong></h2></div>
     <!-- Tabla encuestas Express -->
-    <div class="card border-primary mt-3 ml-3 mr-3">
-        <div class="card-header text-center bg-info text-white">
-            <h5><strong style="font-size: 1.5rem">Express</strong></h5>
-        </div>
-            <div class="card-body ">
-                <ngx-datatable
-                    class="material"
-                    [headerHeight]="35"
-                    [columnMode]="'force'"
-                    [rowHeight]="'auto'"
-                    [footerHeight]="30"
-                    [count]="true"
-                    [limit]="5"
-                    [rows]="rows1"
-                >
-                <ngx-datatable-column name="fecha">
-                    <ng-template ngx-datatable-cell-template let-value="value">{{value}}</ng-template>
-                </ngx-datatable-column>
-                <ngx-datatable-column name="Id">
-                    <ng-template ngx-datatable-cell-template let-value="value">{{value}}</ng-template>
-                </ngx-datatable-column>
-                <ngx-datatable-column name="pregunta1">
-                    <ng-template ngx-datatable-cell-template let-value="value">{{value}}</ng-template>
-                </ngx-datatable-column>
-                <ngx-datatable-column name="pregunta2">
-                    <ng-template ngx-datatable-cell-template let-value="value">{{value}}</ng-template>
-                </ngx-datatable-column>
-                <ngx-datatable-column name="pregunta3">
-                    <ng-template ngx-datatable-cell-template let-value="value">{{value}}</ng-template>
-                </ngx-datatable-column>
-                <ngx-datatable-column name="pregunta4">
-                    <ng-template ngx-datatable-cell-template let-value="value">{{value}}</ng-template>
-                </ngx-datatable-column>
-                <ngx-datatable-column name="pregunta5">
-                    <ng-template ngx-datatable-cell-template let-value="value">{{value}}</ng-template>
-                </ngx-datatable-column>
-                <ngx-datatable-column name="pregunta6">
-                    <ng-template ngx-datatable-cell-template let-value="value">{{value}}</ng-template>
-                </ngx-datatable-column>
-                <ngx-datatable-column name="pregunta7">
-                    <ng-template ngx-datatable-cell-template let-value="value">{{value}}</ng-template>
-                </ngx-datatable-column>
-                <ngx-datatable-column name="pregunta8">
-                    <ng-template ngx-datatable-cell-template let-value="value">{{value}}</ng-template>
-                </ngx-datatable-column>
-                <ngx-datatable-column name="sucursal">
-                    <ng-template ngx-datatable-cell-template let-value="value">La Viga</ng-template>
-                </ngx-datatable-column>
-                <ngx-datatable-column name="total">
-                    <ng-template ngx-datatable-cell-template let-value="value">{{value}} / 100</ng-template>
-                </ngx-datatable-column>
-                </ngx-datatable>
-            </div>
-    </div>
+    
     <!-- Tabla encuestas Reparaciones -->
     <div class="card border-primary mt-3 ml-3 mr-3">
         <div class="card-header text-center bg-danger text-white">
@@ -301,60 +248,7 @@
             </div>
     </div>
         <!-- Tabla encuestas Tramites -->
-    <div class="card border-primary mt-3 ml-3 mr-3">
-        <div class="card-header text-center bg-success text-white">
-            <h5><strong style="font-size: 1.5rem">Trámites</strong></h5>
-        </div>
-        <div class="card-body ">
-            <ngx-datatable
-                class="material"
-                [headerHeight]="35"
-                [columnMode]="'force'"
-                [rowHeight]="'auto'"
-                [footerHeight]="30"
-                [count]="true"
-                [limit]="5"
-                [rows]="rows3"
-            >
-            <ngx-datatable-column name="fecha">
-                <ng-template ngx-datatable-cell-template let-value="value">{{value}}</ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column name="Id">
-                <ng-template ngx-datatable-cell-template let-value="value">{{value}}</ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column name="pregunta1">
-                <ng-template ngx-datatable-cell-template let-value="value">{{value}}</ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column name="pregunta2">
-                <ng-template ngx-datatable-cell-template let-value="value">{{value}}</ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column name="pregunta3">
-                <ng-template ngx-datatable-cell-template let-value="value">{{value}}</ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column name="pregunta4">
-                <ng-template ngx-datatable-cell-template let-value="value">{{value}}</ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column name="pregunta5">
-                <ng-template ngx-datatable-cell-template let-value="value">{{value}}</ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column name="pregunta6">
-            <ng-template ngx-datatable-cell-template let-value="value">{{value}}</ng-template>
-               </ngx-datatable-column>
-            <ngx-datatable-column name="pregunta7">
-                <ng-template ngx-datatable-cell-template let-value="value">{{value}}</ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column name="pregunta8">
-                <ng-template ngx-datatable-cell-template let-value="value">{{value}}</ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column name="sucursal">
-                <ng-template ngx-datatable-cell-template let-value="value">La Viga</ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column name="total">
-                <ng-template ngx-datatable-cell-template let-value="value">{{value}} / 100</ng-template>
-            </ngx-datatable-column>
-            </ngx-datatable>
-        </div>
-    </div>
+    
 <div class="card-footer text-muted text-right">Ultima Actualización</div>
 </div>
     </div>
