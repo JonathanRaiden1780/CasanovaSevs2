@@ -134,4 +134,3 @@ import { ReportsCComponent } from './components/reports-c/reports-c.component';
 })
 export class AppModule { }
 
-platformBrowserDynamic().bootstrapModule(AppModule);

@@ -74,6 +74,7 @@ export class EncuestaService {
    ccp8mm: AngularFirestoreCollection<EncuestaexInterface>;
    ccp9mb: AngularFirestoreCollection<EncuestaexInterface>;
    ccp9mm: AngularFirestoreCollection<EncuestaexInterface>;
+   ccp9r: AngularFirestoreCollection<EncuestaexInterface>;
    ccp10mb: AngularFirestoreCollection<EncuestaexInterface>;
    ccp10mm: AngularFirestoreCollection<EncuestaexInterface>;
 
@@ -119,6 +120,7 @@ export class EncuestaService {
   cccp8m: AngularFirestoreCollection<EncuestaexInterface>;
   cccp8mm: AngularFirestoreCollection<EncuestaexInterface>;
   cccp9mb: AngularFirestoreCollection<EncuestaexInterface>;
+  cccp9r: AngularFirestoreCollection<EncuestaexInterface>;
   cccp9mm: AngularFirestoreCollection<EncuestaexInterface>;
   cccp10mb: AngularFirestoreCollection<EncuestaexInterface>;
   cccp10mm: AngularFirestoreCollection<EncuestaexInterface>;
@@ -240,9 +242,11 @@ constructor(
     this.cccp8mm = this.afs.collection('Contadores').doc('Pregunta8C').collection('MuyMalo', ref => ref);
 
     this.ccp9mb = this.afs.collection('Contadores').doc('Pregunta9').collection('Si', ref => ref);
-    this.ccp9mm = this.afs.collection('Contadores').doc('Pregunta9').collection('No', ref => ref);
+    this.ccp9mm = this.afs.collection('Contadores').doc('Pregunta9').collection('N-A', ref => ref);
+    this.ccp9r  = this.afs.collection('Contadores').doc('Pregunta9').collection('No', ref => ref);
 
     this.cccp9mb = this.afs.collection('Contadores').doc('Pregunta9C').collection('Si', ref => ref);
+    this.cccp9r  = this.afs.collection('Contadores').doc('Pregunta9C').collection('N-A', ref => ref);
     this.cccp9mm = this.afs.collection('Contadores').doc('Pregunta9C').collection('No', ref => ref);
   
     this.ccp10mb = this.afs.collection('Contadores').doc('Pregunta10').collection('Si', ref => ref);
@@ -994,6 +998,17 @@ getitemcoll5mbc(): Observable<EncuestaexInterface[]> {
   }));
   return this.Encuestaexes;
  }
+ getitemcoll9rc(): Observable<EncuestaexInterface[]> {
+  this.Encuestaexes = this.cccp9r.snapshotChanges()
+  .pipe(map(changes => {
+    return changes.map(action => {
+      const data = action.payload.doc.id as EncuestaexInterface;
+      // data.id = action.payload.doc.id;
+      return data;
+    });
+  }));
+  return this.Encuestaexes;
+ }
  getitemcoll9mmc(): Observable<EncuestaexInterface[]> {
  this.Encuestaexes = this.cccp9mm.snapshotChanges()
  .pipe(map(changes => {
@@ -1489,6 +1504,17 @@ getitemcoll9mb(): Observable<EncuestaexInterface[]> {
  }));
  return this.Encuestaexes;
 }
+getitemcoll9r(): Observable<EncuestaexInterface[]> {
+  this.Encuestaexes = this.ccp9r.snapshotChanges()
+  .pipe(map(changes => {
+    return changes.map(action => {
+      const data = action.payload.doc.id as EncuestaexInterface;
+      // data.id = action.payload.doc.id;
+      return data;
+    });
+  }));
+  return this.Encuestaexes;
+ }
 getitemcoll9mm(): Observable<EncuestaexInterface[]> {
 this.Encuestaexes = this.ccp9mm.snapshotChanges()
 .pipe(map(changes => {

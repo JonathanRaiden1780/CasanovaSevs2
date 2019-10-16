@@ -21,44 +21,31 @@ public pieChartType: ChartType = 'pie';
 public pieChartLegend = false;
 public pieChartPlugins = [];
 public pieChartLabels: Label[] = ['Muy Malo', 'Malo', 'Regular', 'Bueno',  'Muy Bueno'];
-// P1 El tiempo que trasncurrio para que lo atendieran fue...
+// P1 El tiempo que transcurrió para que lo atendieran en recepción fue:
 public pieChartDataP1: SingleDataSet = [9, 6, 6, 3, 6];
-  // P2 ¿Como calificaría la imagen de nuestras instalaciones?
-public pieChartDataP2: SingleDataSet = [15, 3, 3, 3, 6];
-  // P3 La atención que recibió de nuestro asesor de servicio fue….
+// P2 Durante la recepción ¿Nuestro asesor le preguntó si su vehículo requería de 
+//    algún servicio adicional a lo previamente solicitado?
+public pieChartLabelP2: Label[] = ['No', 'Si'];
+public pieChartDataP2: SingleDataSet = [15, 3];
+// P3 El tiempo de entrega acorde al proporcionado posterior al diagnostico fue:
 public pieChartDataP3: SingleDataSet = [18, 6, 1.5, 1.5, 3];
-  // P4 Considera que la imagen de nuestro asesor de servicio es…
+// P4 ¿Cómo calificaría la imagen de nuestras instalaciones?
 public pieChartDataP4: SingleDataSet = [21, 6, 1.5, .75, .75];
-  // P5 Le entregaron su vehículo …
-public pieChartLabels5: Label[] = ['Sucio', 'Limpio'];
-public pieChartDataP5: SingleDataSet = [21, 9];
-  // P2 La experiencia en general de su visita a Casanova fue…
+// P5 La atención que recibió de nuestro asesor de servicio fue….
+public pieChartDataP5: SingleDataSet = [21, 6, 1.5, .75, .75];
+// P6 Considera que la imagen de nuestro asesor de servicio es...
 public pieChartDataP6: SingleDataSet = [12, 9, 6, 1.5, 1.5];
-// Bar
-// para preguntas por servicio
-// Express
-  // P1_E Informacion de servicio adicional...
-  public pieChartLabelP7: Label[] = ['No', 'Si'];
-  public pieChartDataP7: SingleDataSet = [21, 9];
-  // P2_E Tiempo de entrega...
-  public pieChartLabelP8: Label[] = ['Malo', 'Regular', 'Bueno'];
-  public pieChartDataP8: SingleDataSet = [6, 24, 1];
-
-  
-// Tramite
-  // P1_T Informacion de servicio adicional...
-  public pieChartLabelP1_T: Label[] = ['No', 'Si'];
-  public pieChartDataP1_T: SingleDataSet = [12, 18];
-  // P2_T Entrega en tiempo...
-  public pieChartLabelP2_T: Label[] = ['No', 'Si'];
-  public pieChartDataP2_T: SingleDataSet = [30, 0];
-// Reparacion
-  // P1_R Informacion de servicio adicional...
-  public pieChartLabelP1_R: Label[] = ['No', 'Si'];
-  public pieChartDataP1_R: SingleDataSet = [30, 0];
-  // P2_T Entrega en tiempo...
-  public pieChartLabelP2_R: Label[] = ['No', 'Si'];
-  public pieChartDataP2_R: SingleDataSet = [12, 18];
+// P7 La limpieza de su vehículo fue:
+public pieChartDataP7: SingleDataSet = [12, 9, 6, 1.5, 1.5];
+// P8 La experiencia en general de su visita a Casanova fue…
+public pieChartDataP8: SingleDataSet = [12, 9, 6, 1.5, 1.5];
+// Rep
+// P9 ¿Se le explicó el motivo?
+public pieChartLabelP1_R: Label[] = ['No', 'Si', 'N/A'];
+public pieChartDataP1_R: SingleDataSet = [30, 56, 9];
+ // P10 ¿Usted es la persona que ingresó el vehículo al taller?
+public pieChartLabelP2_R: Label[] = ['No', 'Si'];
+public pieChartDataP2_R: SingleDataSet = [12, 18];
 /* Iconos */
 faChartLine = faChartLine;
 
@@ -124,6 +111,7 @@ constructor(
  this.encuestaex.getitemcoll8mmc().subscribe(id => this.listp8mm = id as Array<string>);
 
  this.encuestaex.getitemcoll9mbc().subscribe(id => this.listp9mb = id as Array<string>);
+ this.encuestaex.getitemcoll9rc().subscribe(id => this.listp9r = id as Array<string>);
  this.encuestaex.getitemcoll9mmc().subscribe(id =>  this.listp9mm = id as Array<string>);
 
  this.encuestaex.getitemcoll10mbc().subscribe(id => this.listp10mb = id as Array<string>);
@@ -138,11 +126,11 @@ constructor(
  cp6mb: number; cp6b: number; cp6r: number; cp6m: number; cp6mm: number;
  cp7mb: number; cp7b: number; cp7r: number; cp7m: number; cp7mm: number;
  cp8mb: number; cp8b: number; cp8r: number; cp8m: number; cp8mm: number;
- cp9mb: number; cp9mm: number; cp10mb: number; cp10mm: number;
+ cp9mb: number;  cp9r:number; cp9mm: number; cp10mb: number; cp10mm: number;
 
  listp1mb: string[]; listp2mb: string[]; listp3mb: string[]; listp4mb: string[]; listp5mb: string[]; listp6mb: string[]; listp7mb: string[]; listp8mb: string[]; listp9mb: string[]; listp10mb: string[];
  listp1b: string[]; listp2b: string[]; listp3b: string[]; listp4b: string[]; listp5b: string[]; listp6b: string[]; listp7b: string[]; listp8b: string[]; 
- listp1r: string[]; listp2r: string[]; listp3r: string[]; listp4r: string[]; listp5r: string[]; listp6r: string[]; listp7r: string[]; listp8r: string[]; 
+ listp1r: string[]; listp2r: string[]; listp3r: string[]; listp4r: string[]; listp5r: string[]; listp6r: string[]; listp7r: string[]; listp8r: string[]; listp9r:string[];
  listp1m: string[]; listp2m: string[]; listp3m: string[]; listp4m: string[]; listp5m: string[]; listp6m: string[]; listp7m: string[]; listp8m: string[]; 
  listp1mm: string[]; listp2mm: string[]; listp3mm: string[]; listp4mm: string[]; listp5mm: string[]; listp6mm: string[]; listp7mm: string[]; listp8mm: string[]; listp9mm: string[]; listp10mm: string[];
 
@@ -150,7 +138,6 @@ ngOnInit() {
   this.getData2();  
   this.cont()
 }
-
 cont() {
   this.afs.collection('typeC').doc('VI0001').valueChanges().pipe(take(1)).subscribe(res => {this.arras(res); } );
 }
@@ -204,32 +191,31 @@ this.cp1b =  this.listp1b.length;
   this.cp8mm = this.listp8mm.length;
 
   this.cp9mb = this.listp9mb.length;
+  this.cp9r = this.listp9r.length;
   this.cp9mm = this.listp9mm.length;
+  
   this.cp10mb =this.listp10mb.length;
   this.cp10mm =this.listp10mm.length;
 
   this.pieChartDataP1 = [this.cp1mm,this.cp1m,this.cp1r,this.cp1b,this.cp1mb];
   
-  this.pieChartDataP2 = [this.cp2mm,this.cp2m,this.cp2r,this.cp2b,this.cp2mb];
+  this.pieChartDataP2 = [this.cp2mm,this.cp2mb];
   
   this.pieChartDataP3 = [this.cp3mm,this.cp3m,this.cp3r,this.cp3b,this.cp3mb];
 
   this.pieChartDataP4 = [this.cp4mm,this.cp4m,this.cp4r,this.cp4b,this.cp4mb];
   
-  this.pieChartDataP5 = [this.cp5mm,this.cp5mb];
+  this.pieChartDataP5 = [this.cp5mm,this.cp5m,this.cp5r,this.cp5b,this.cp5mb];
   
   this.pieChartDataP6 = [this.cp6mm,this.cp6m,this.cp6r,this.cp6b,this.cp6mb];
   
-  this.pieChartDataP7 = [this.cp7mm,this.cp7mb];
+  this.pieChartDataP7 = [this.cp7mm,this.cp7m,this.cp7r,this.cp7b,this.cp7mb];
   
-  this.pieChartDataP8 = [this.cp8mm,this.cp8r,this.cp8mb];
-  
+  this.pieChartDataP8 = [this.cp8mm,this.cp8m,this.cp8r,this.cp8b,this.cp8mb];  
 
-  this.pieChartDataP1_R = [this.cp9mm,this.cp9mb];
-  this.pieChartDataP1_T = [this.cp9mm,this.cp9mb];
+  this.pieChartDataP1_R = [this.cp9mm,this.cp9mb,this.cp9r];
 
   this.pieChartDataP2_R = [this.cp10mm,this.cp10mb];
-  this.pieChartDataP2_T = [this.cp10mm,this.cp10mb];
 
 
 

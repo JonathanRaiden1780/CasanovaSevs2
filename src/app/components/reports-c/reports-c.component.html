@@ -20,8 +20,8 @@
                         <div class="card-header text-center text-white" style="background-color: #1a3263"><strong><h3>Preguntas</h3></strong></div>
                             <div class="card-group">
                                 <div class="card">
-                                    <div class="card-header text-white" style="background-color: #fab95b"><small><strong>El tiempo que transcurrió para que lo atendieran fue...</strong></small></div>
-                                    <div class="card-body" style="background-color: #e8e2db">
+                                        <div class="card-header text-white" style="background-color: #fab95b"><small><strong>El tiempo que transcurrió para que lo atendieran en recepción fue:</strong></small></div>
+                                        <div class="card-body" style="background-color: #e8e2db">
                                         <div style="display: block;">
                                             <canvas baseChart 
                                                 [data]="pieChartDataP1" 
@@ -35,12 +35,12 @@
                                     </div>
                                 </div>
                                 <div class="card">
-                                    <div class="card-header text-white" style="background-color: #fab95b"><small><strong>¿Como calificaría la imagen de nuestras instalaciones?</strong></small></div>
-                                    <div class="card-body" style="background-color: #e8e2db">
+                                        <div class="card-header text-white" style="background-color: #fab95b"><small><strong>Durante la recepción ¿Nuestro asesor le preguntó si su vehículo requería de algún servicio adicional a lo previamente solicitado?</strong></small></div>
+                                        <div class="card-body" style="background-color: #e8e2db">
                                         <div style="display: block;">
                                             <canvas baseChart 
                                                 [data]="pieChartDataP2" 
-                                                [labels]="pieChartLabels" 
+                                                [labels]="pieChartLabelP2" 
                                                 [chartType]="pieChartType"
                                                 [options]="pieChartOptions"
                                                 [plugins]="pieChartPlugins"
@@ -50,8 +50,8 @@
                                     </div>
                                 </div>
                                 <div class="card">
-                                    <div class="card-header text-white" style="background-color: #fab95b"><small><strong>La atención que recibió de nuestro asesor de servicio fue….</strong></small></div>
-                                    <div class="card-body" style="background-color: #e8e2db">
+                                        <div class="card-header text-white" style="background-color: #fab95b"><small><strong>El tiempo de entrega acorde al proporcionado posterior al diagnostico fue:</strong></small></div>
+                                        <div class="card-body" style="background-color: #e8e2db">
                                         <div style="display: block;">
                                             <canvas baseChart 
                                                 [data]="pieChartDataP3" 
@@ -65,8 +65,8 @@
                                     </div>
                                 </div>
                                 <div class="card">
-                                    <div class="card-header text-white" style="background-color: #fab95b"><small><strong>Considera que la imagen de nuestro asesor de servicio es…</strong></small></div>
-                                    <div class="card-body" style="background-color: #e8e2db">
+                                        <div class="card-header text-white" style="background-color: #fab95b"><small><strong>¿Cómo calificaría la imagen de nuestras instalaciones?</strong></small></div>
+                                        <div class="card-body" style="background-color: #e8e2db">
                                         <div style="display: block;">
                                             <canvas baseChart 
                                                 [data]="pieChartDataP4" 
@@ -80,12 +80,12 @@
                                     </div>
                                 </div>
                                 <div class="card">
-                                    <div class="card-header text-white" style="background-color: #fab95b"><small><strong>Le entregaron su vehículo…                                          </strong></small></div>
-                                    <div class="card-body" style="background-color: #e8e2db">
+                                        <div class="card-header text-white" style="background-color: #fab95b"><small><strong>La atención que recibió de nuestro asesor de servicio fue…</strong></small></div>
+                                        <div class="card-body" style="background-color: #e8e2db">
                                         <div style="display: block;">
                                             <canvas baseChart 
                                                 [data]="pieChartDataP5" 
-                                                [labels]="pieChartLabels5" 
+                                                [labels]="pieChartLabels" 
                                                 [chartType]="pieChartType"
                                                 [options]="pieChartOptions"
                                                 [plugins]="pieChartPlugins"
@@ -104,7 +104,7 @@
                         <div class="card border-primary mt-3 mb-3">
                                     <div class="card-group">
                                             <div class="card">
-                                                    <div class="card-header text-white" style="background-color: #fab95b"><small><strong>La experiencia en general de su visita a Casanova fue…</strong></small></div>
+                                                    <div class="card-header text-white" style="background-color: #fab95b"><small><strong>Considera que la imagen de nuestro asesor de servicio es...</strong></small></div>
                                                     <div class="card-body" style="background-color: #e8e2db">
                                                         <div style="display: block;">
                                                             <canvas baseChart 
@@ -119,12 +119,12 @@
                                                     </div>
                                                 </div>
                                                 <div class="card">
-                                                    <div class="card-header text-white" style="background-color: #fab95b"><small><strong>Información detallada / adicional / cita...</strong></small></div>
-                                                    <div class="card-body" style="background-color: #e8e2db">
+                                                        <div class="card-header text-white" style="background-color: #fab95b"><small><strong>La limpieza de su vehículo fue:</strong></small></div>
+                                                        <div class="card-body" style="background-color: #e8e2db">
                                                         <div style="display: block;">
                                                             <canvas baseChart 
                                                                 [data]="pieChartDataP7" 
-                                                                [labels]="pieChartLabelP7" 
+                                                                [labels]="pieChartLabels" 
                                                                 [chartType]="pieChartType"
                                                                 [options]="pieChartOptions"
                                                                 [plugins]="pieChartPlugins"
@@ -134,12 +134,12 @@
                                                     </div>
                                                 </div>
                                                 <div class="card">
-                                                    <div class="card-header text-white" style="background-color: #fab95b"><small><strong>Tiempo de entrega vehículo...</strong></small></div>
-                                                    <div class="card-body" style="background-color: #e8e2db">
+                                                        <div class="card-header text-white" style="background-color: #fab95b"><small><strong>La experiencia en general de su visita a Casanova fue:</strong></small></div>
+                                                        <div class="card-body" style="background-color: #e8e2db">
                                                         <div style="display: block;">
                                                             <canvas baseChart 
                                                                 [data]="pieChartDataP8" 
-                                                                [labels]="pieChartLabelP8" 
+                                                                [labels]="pieChartLabels" 
                                                                 [chartType]="pieChartType"
                                                                 [options]="pieChartOptions"
                                                                 [plugins]="pieChartPlugins"
@@ -149,12 +149,12 @@
                                                     </div>
                                                 </div>
                                                 <div class="card">
-                                                    <div class="card-header text-white" style="background-color: #fab95b"><small><strong>Se explicó el motivo</strong></small></div>
-                                                    <div class="card-body" style="background-color: #e8e2db">
+                                                        <div class="card-header text-white" style="background-color: #fab95b"><small><strong>Se explicó el motivo (tiempo entrega)</strong></small></div>
+                                                        <div class="card-body" style="background-color: #e8e2db">
                                                         <div style="display: block;">
                                                             <canvas baseChart 
                                                                 [data]="pieChartDataP1_R" 
-                                                                [labels]="pieChartLabelP1_T" 
+                                                                [labels]="pieChartLabelP1_R" 
                                                                 [chartType]="pieChartType"
                                                                 [options]="pieChartOptions"
                                                                 [plugins]="pieChartPlugins"
@@ -164,8 +164,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="card">
-                                                    <div class="card-header text-white" style="background-color: #fab95b"><small><strong>Usted ingresó el vehículo?</strong></small></div>
-                                                    <div class="card-body" style="background-color: #e8e2db">
+                                                        <div class="card-header text-white" style="background-color: #fab95b"><small><strong>¿Usted ingresó el vehículo?</strong></small></div>
+                                                        <div class="card-body" style="background-color: #e8e2db">
                                                         <div style="display: block;">
                                                             <canvas baseChart 
                                                                 [data]="pieChartDataP2_R" 
