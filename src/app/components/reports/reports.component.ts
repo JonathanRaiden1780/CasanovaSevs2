@@ -42,7 +42,7 @@ export class ReportsComponent implements OnInit {
   // Rep
    // P9 ¿Se le explicó el motivo?
     public pieChartLabelP1_R: Label[] = ['No', 'Si', 'N/A'];
-    public pieChartDataP1_R: SingleDataSet = [30, 0];
+    public pieChartDataP1_R: SingleDataSet = [30, 0, 1];
      // P10 ¿Usted es la persona que ingresó el vehículo al taller?
     public pieChartLabelP2_R: Label[] = ['No', 'Si'];
     public pieChartDataP2_R: SingleDataSet = [12, 18, 9];
@@ -213,7 +213,7 @@ export class ReportsComponent implements OnInit {
 
     this.pieChartDataP8 = [this.cp8mm,this.cp8m,this.cp8r,this.cp8b,this.cp8mb];
     
-    this.pieChartDataP1_R = [this.cp9mm,this.cp9mb,this.cp9r];
+    this.pieChartDataP1_R = [this.cp9r,this.cp9mb,this.cp9mm];
 
     this.pieChartDataP2_R = [this.cp10mm,this.cp10mb];
  }

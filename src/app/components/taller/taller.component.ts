@@ -87,6 +87,7 @@ public ubi :string;
     value.validacion = 'falta_validar';
     value.contestada = false;
     value.ubicacion = this.ubi;
+    console.log(value);
 //___________________________________________________________________________________
     this.afs.firestore.doc('Encuestareps/' + this.name).get()
     .then(docSnapshot => {
@@ -114,6 +115,6 @@ public ubi :string;
         });
       }
     });
-  }
+  } 
 }
   

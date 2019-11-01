@@ -47,7 +47,11 @@
                                 {{ rows1.fecha }}
                             </ng-template> -->
                          </ngx-datatable-column>
-                         
+                         <ngx-datatable-column name="cliente">
+                            <ng-template ngx-datatable-cell-template let-value="value">
+                                {{value}}
+                            </ng-template>
+                            </ngx-datatable-column>
                          <ngx-datatable-column >
                                 <ng-template let-column="column" ngx-datatable-header-template>
                                         Sucursal

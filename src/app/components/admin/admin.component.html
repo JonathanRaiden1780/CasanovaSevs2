@@ -39,6 +39,11 @@
                             La Viga
                             </ng-template>
                         </ngx-datatable-column>
+                        <ngx-datatable-column name="cliente">
+                            <ng-template ngx-datatable-cell-template let-value="value">
+                                {{value}}
+                            </ng-template>
+                            </ngx-datatable-column>
                         <ngx-datatable-column name="total">
                         <ng-template ngx-datatable-cell-template let-value="value">
                             {{value}} / 100
