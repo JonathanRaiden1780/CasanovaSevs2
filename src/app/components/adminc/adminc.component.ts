@@ -9,6 +9,8 @@ import { AuthService } from 'src/app/services/auth.service';
 import { RegistroInterface } from 'src/app/Models/registro';
 import { MetaInterface } from 'src/app/Models/Meta';
 
+import { ExportAsService, ExportAsConfig } from 'ngx-export-as';
+
 @Component({
   selector: 'app-adminc',
   templateUrl: './adminc.component.html',
@@ -18,8 +20,11 @@ export class AdmincComponent implements OnInit {
   constructor(
    private encuestaex: EncuestaService,
    private afs: AngularFirestore,
+   private exportAsService: ExportAsService,
    private authservice: AuthService
  ) {
+
+  
  
    this.encuestaex.getitemc().subscribe(id => this.list = id as Array<string>);
    //get rep
@@ -57,6 +62,18 @@ export class AdmincComponent implements OnInit {
  
  public isLogin: boolean;
   
+
+ // Variables
+ listado: any[];
+ 
+
+
+ config: ExportAsConfig = {
+   type: 'pdf',
+   elementId: 'mytable5',
+ };
+
+
  ens: string;
  ens1: string;
  ens2: string;
@@ -288,7 +305,7 @@ otroget(){
  vas: any[];
  getData1(): any  {
 return  this.encuestaex.getitemallC().subscribe(x => {
- this.vas = x.filter(x=>x.ubicacion == 'Centenario'); 
+ this.vas = x.filter(x=>x.ubicacion == 'Centenario' && x.contestada == true); 
  this.rows1 = this.vas;
  return this.vas;
   });
@@ -303,5 +320,13 @@ return  this.encuestaex.getitemallC().subscribe(x => {
    this.encuestaex.addMetaC(value); 
    this.metass = this.meta;
  }
+
+ exportAs(type) {
+
+  this.listado = this.rows1; /// aqui esta el problema <---------------------------------------------------------------------
+
+  this.config.type = type;
+  this.exportAsService.save(this.config, 'myFile');
+}
  
 }
