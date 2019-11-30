@@ -410,6 +410,18 @@ addEcuescontC(Encuestaex: EncuestaexInterface) {
   }));
   return this.Encuestaexes;
 }
+getAllEncuestaexCen(x:boolean): Observable<EncuestaexInterface[]> {
+  this.typeCollections = this.afs.collection('typeC', ref => ref.where("contestada","==",x));
+  this.Encuestaexes = this.typeCollections.snapshotChanges()
+  .pipe(map(changes => {
+    return changes.map(action => {
+      const data = action.payload.doc.data() as EncuestaexInterface;
+      data.id = action.payload.doc.id;
+      return data;
+    });
+  }));
+  return this.Encuestaexes;
+}
  getAllEncuesta(ide:string, ids:string): Observable<EncuestaexInterface[]> {
    this.typeCollections = this.afs.collection('type', ref => ref.where("fechaent",">=",ide).where("fechaent","<=",ids));
    this.Encuestaexes = this.typeCollections.snapshotChanges()

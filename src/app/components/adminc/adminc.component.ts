@@ -64,7 +64,7 @@ export class AdmincComponent implements OnInit {
   
 
  // Variables
- listado: any[];
+ listado: any;
  
 
 
@@ -320,11 +320,13 @@ return  this.encuestaex.getitemallC().subscribe(x => {
    this.encuestaex.addMetaC(value); 
    this.metass = this.meta;
  }
-
  exportAs(type) {
+   var x = true;
+  this.listado = this.encuestaex.getAllEncuestaexCen(x); /// aqui esta el problema <---------------------------------------------------------------------
+  this.exports(type);
+}
 
-  this.listado = this.rows1; /// aqui esta el problema <---------------------------------------------------------------------
-
+ exports(type) {
   this.config.type = type;
   this.exportAsService.save(this.config, 'myFile');
 }
