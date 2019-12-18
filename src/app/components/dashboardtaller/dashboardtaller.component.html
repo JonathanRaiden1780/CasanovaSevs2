@@ -1,7 +1,7 @@
 <!-- NAVBAR -->
 <app-navbar></app-navbar>
 <!-- Contenido -->
-
+<!-- 
 <div class="card col-md-2 mt-3 ml-1 text-white text-center form-inline" style="background-color: #1a3263"><fa-icon [icon]="faCarCrash" class="fa-2x"></fa-icon><strong><h2>SEVS - Taller - Consulta</h2></strong></div>
 <div class="row">
   <div class="col-md-12">
@@ -63,7 +63,7 @@
         </div>
   </div>
 </div>
-<div class="row">
+ --><div class="row">
   <div class="col-md-12 mx-auto">
     <div class="card mt-3 ml-1 text-white text-center" style="background-color: #1a3263"><strong><h2>Exportar Información</h2></strong></div>
   </div>
@@ -100,123 +100,145 @@
             <div class="col-md-2">
               <!-- Fecha de Salida -->
                 <div class="form-group">
-                    <label><strong>Folio</strong></label><br>
                     <div class="input-group mb-2">
                       <div class="input-group-prepend">
-                        <div class="input-group-text" style="color: #f7b633; background-color: #1a3263"><fa-icon [icon]="faCar"></fa-icon></div>
                       </div>
-                      <input type="text" class="form-control text-center" id="PLACAS" placeholder="PLACA" (keyup)="myFunction2($event.target.value)">
                     </div>
                 </div>
               </div>
             <div class="col-md-2">
                 <button type="submit" class="btn btn-primary btn-block btn-lg mb-2 mt-4" style="font-size: 1rem" value="Guardar" (click)="myFunction()"><strong>Generar Reporte</strong></button>
-              <button class="btn btn-primary btn-block" style="font-size: 1rem" (click)="exportAs('xlsx')"><strong>Exportar Excel</strong></button>
+              <button class="btn btn-primary btn-block" style="font-size: 1rem" (click)="exportAs('cvs')"><strong>Exportar Excel</strong></button>
             </div>
           </div>
         </form>
       <div class="card-body"><!-- LLenado de la tabla atravez de un for-->
         <table  class="table table-sm table-bordered text-center" id="mytable5">
           <thead>
-            <tr>
+            <tr >
               <th scope="col">FOLIO</th>
-              <th scope="col">TIPO DE SERVICIO</th>
-
-              <th scope="col" >PLACA</th>
-              <th scope="col" hidden>VEHICULO</th>
-              <th scope="col" hidden>MARCA</th>
-              <th scope="col" hidden>COMBUSTIBLE</th>
-              <th scope="col" hidden># SERIE</th>
-              <th scope="col" hidden>KM</th>
-              <th scope="col" hidden>AÑO</th>
-
-              <th scope="col" hidden>NOMBRECLIENTE</th>
-              <th scope="col" hidden>CORREOCLIENTE</th>
-              <th scope="col" hidden>NUMEROCLIENTE</th>
-              <th scope="col" hidden>CLIENTE</th>
-              
-
-              <th scope="col" hidden>ADMIN FLOTA</th>
-              <th scope="col" hidden>ASESOR</th>
-
-              <th scope="col">ENTRADA</th>
-              <th scope="col">SALIDA</th>          
-              <th scope="col" hidden>SOL. DIAG.</th>
-              <th scope="col" hidden>T. SOLICITADO</th>
-              <th scope="col" hidden>T. REALIZADO</th>
-              <th scope="col">ESTATUS</th>
-              <th scope="col">TECNICO</th>
-
-              <th scope="col" hidden>TARJETA CIRCULACION</th>
-              <th scope="col" hidden>ANTENA</th>
-              <th scope="col" hidden>CONTROL Y LLAVE</th>
-              <th scope="col" hidden>LLAVE TUERCAS</th>
-              <th scope="col" hidden>KIT DE HERRAMIENTAS</th>
-              <th scope="col" hidden>LLANTAS</th>
-              <th scope="col" hidden>REFACCION</th>
-              <th scope="col" hidden>GATO</th>
-              <th scope="col" hidden>TAPON LLANTA</th>
-              <th scope="col" hidden>SEGURO RUEDAS</th>
-              <th scope="col" hidden>TAPON GASO</th>
-              <th scope="col" hidden>ORDEN DE SERVICIO</th>
-              <th scope="col" hidden>VESTIDURAS</th>
-              <th scope="col" hidden>TAPETES</th>
-              <th scope="col" hidden>EXTINTOR</th> 
-              <th scope="col" hidden>SEÑALES</th>
-              <th scope="col" hidden>RADIO</th>
-              <th scope="col">COMENTARIOS</th>
+              <th scope="col">FECHA</th>
+              <th scope="col">PREGUNTA 1</th>
+              <th scope="col">PREGUNTA 2</th>
+              <th scope="col">PREGUNTA 3</th>
+              <th scope="col">PREGUNTA 4</th>
+              <th scope="col">PREGUNTA 5</th>
+              <th scope="col">PREGUNTA 6</th>
+              <th scope="col">PREGUNTA 7</th>
+              <th scope="col">PREGUNTA 8</th>
+              <th scope="col">PREGUNTA 9</th>
+              <th scope="col">PREGUNTA 10</th>
+              <th scope="col">TOTAL</th>
+              <th scope="col">Contestada</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let controlService of listado | async">
-              <th scope="row">{{controlService.id}}</th>
-              <td>{{controlService.tipo}}</td>
-
-              <td >{{controlService.placa}}</td>
-              <td hidden>{{controlService.vehiculo}}</td>
-              <td hidden>{{controlService.marca}}</td>
-              <td hidden>{{controlService.combustible}}</td>
-              <td hidden>{{controlService.numserie}}</td>
-              <td hidden>{{controlService.kilometraje}}</td>
-              <td hidden>{{controlService.anio}}</td>
-
-              <td hidden>{{controlService.NombreCliente}}</td>
-              <td hidden>{{controlService.CorreoCliente}}</td>
-              <td hidden>{{controlService.NumeroCliente}}</td>
-              <td hidden>{{controlService.cliente}}</td>
-
-              <td hidden>{{controlService.Administrador}}</td>
-              <td hidden>{{controlService.asesor}}</td>
-
-              <td>{{controlService.fechaent}}</td>
-              <td>{{controlService.fechasal}}</td>
-              <td hidden>{{controlService.Diagnostico}}</td>
-              <td hidden>{{controlService.Solicta}}</td>
-              <td hidden>{{controlService.Trabajorealizado}}</td>
-              <td>{{controlService.Estatus}}</td>
-              <td>{{controlService.Tecnico}}</td>
-
-              <td hidden>{{controlService.tarjetacirculacion}}</td>
-              <td hidden>{{controlService.antena}}</td>
-              <td hidden>{{controlService.controlllave}}</td>
-              <td hidden>{{controlService.llavetuerc}}</td>
-              <td hidden>{{controlService.kitherram}}</td>
-              <td hidden>{{controlService.llantas}}</td>
-              <td hidden>{{controlService.llantaref}}</td>
-              <td hidden>{{controlService.gato}}</td>
-              <td hidden>{{controlService.taponllanta}}</td>
-              <td hidden>{{controlService.segurorueda}}</td>
-              <td hidden>{{controlService.tapongas}}</td>
-              <td hidden>{{controlService.ordenservicio}}</td>
-              <td hidden>{{controlService.vestiduras}}</td>
-              <td hidden>{{controlService.tapetes}}</td>
-              <td hidden>{{controlService.extintor}}</td>
-              <td hidden>{{controlService.senal}}</td>
-              <td hidden>{{controlService.radio}}</td>
-
-              <td>{{controlService.comentarios}}</td>
+              <th  scope="row">{{controlService.id}}</th>
+              <td >{{controlService.fecha}}</td>
+              <td >{{controlService.pregunta1}}</td>
+              <td >{{controlService.pregunta2}}</td>
+              <td >{{controlService.pregunta3}}</td>
+              <td >{{controlService.pregunta4}}</td>
+              <td >{{controlService.pregunta5}}</td>
+              <td >{{controlService.pregunta6}}</td>
+              <td >{{controlService.pregunta7}}</td>
+              <td >{{controlService.pregunta8}}</td>
+              <td >{{controlService.pregunta9}}</td>
+              <td >{{controlService.pregunta10}}</td>
+              <td >{{controlService.total}}</td>
+              <td >{{controlService.contestada}}</td>
             </tr>
           </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row">TOTAL</th>
+              <td>{{contadorreal}}</td>
+              <td>{{promere1}}</td>
+              <td>{{promere2}}</td>
+              <td>{{promere3}}</td>
+              <td>{{promere4}}</td>
+              <td>{{promere5}}</td>
+              <td>{{promere6}}</td>
+              <td>{{promere7}}</td>
+              <td>{{promere8}}</td>
+              <td>Conteo</td>
+              <td>Conteo</td> 
+              <td>{{prome}}</td>
+           
+              <th scope="row">N/A</th>
+              <td >{{fechan}}</td>
+              <td >{{fechan}}</td>
+              <td >{{fechan}}</td>
+              <td >{{fechan}}</td>
+              <td >{{fechan}}</td>
+              <td >{{fechan}}</td>
+              <td >{{fechan}}</td>
+              <td >{{fechan}}</td>
+              <td >{{fechan}}</td>
+              <td >{{cp9r}}</td>
+              <td >/</td>
+              <td >{{fechan}}</td>
+              <td >{{fechan}}</td>
+           
+              <th scope="row">SI</th>
+              <td>{{fechan}}</td>
+              <td >{{fechan1}}</td>
+              <td >{{fechan2}}</td>
+              <td >{{fechan3}}</td>
+              <td >{{fechan4}}</td>
+              <td >{{fechan5}}</td>
+              <td >{{fechan6}}</td>
+              <td >{{fechan7}}</td>
+              <td >{{fechan8}}</td>
+              <td >{{cp9mm}}</td>
+              <td >{{cp10mm}}</td>
+              <td >{{fechan}}</td>
+              <td >{{fechan}}</td>
+           
+              <th scope="row">NO</th>
+              <td>{{fechan}}</td>
+              <td >{{fechan1}}</td>
+              <td >{{fechan2}}</td>
+              <td >{{fechan3}}</td>
+              <td >{{fechan4}}</td>
+              <td >{{fechan5}}</td>
+              <td >{{fechan6}}</td>
+              <td >{{fechan7}}</td>
+              <td >{{fechan8}}</td>
+              <td >{{cp9mm}}</td>
+              <td >{{cp10mm}}</td>
+              <td >{{fechan}}</td>
+              <td >{{fechan}}</td>
+              
+              <th scope="row">Ponderacion</th>
+              <td>{{das}}</td>
+              <td>20/10</td>
+              <td>50/10</td>
+              <td>20/10</td>
+              <td>20/10</td>
+              <td>20/10</td>
+              <td>20/10</td>
+              <td>20/10</td>
+              <td>20/10</td>
+             
+              <th scope="row">20</th>
+              <td>{{fechan}}</td>
+              <td >{{fechan1}}</td>
+              <td >{{fechan2}}</td>
+              <td >{{fechan3}}</td>
+              <td >{{fechan4}}</td>
+              <td >{{fechan5}}</td>
+              <td >{{fechan6}}</td>
+              <td >{{fechan7}}</td>
+              <td >{{fechan8}}</td>
+              <td >{{cp9mm}}</td>
+              <td >{{cp10mm}}</td>
+              <td >{{fechan}}</td>
+              <td >{{fechan}}</td>
+
+            </tr>
+          </tfoot>
         </table>
       </div>
     </div>

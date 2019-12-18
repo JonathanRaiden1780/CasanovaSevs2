@@ -2,7 +2,7 @@
 
 <!-- Pagina de Bienvenida-->
 <div class="card col-md-3 mt-3 text-white" style="background-color: #2a206f"><strong><h2>Bienvenid@: {{nomUsuario}}<br>CENTENARIO</h2></strong></div>
-<button (click)="exportAs('xlsx')">REPORT</button>
+<button (click)="export()">REPORT</button>
 <!-- Resumen Encuestas-->
 <div class="card border-success mt-3 mr-3 ml-3">
     <div class="card-header text-center text-white" style="background-color: #2a206f"><h2><strong>Resumen del Día</strong></h2></div>
@@ -257,46 +257,7 @@
         </div>
         <div class="card-footer text-muted text-right">Ultima Actualización</div>
     </div>
-    <div class="card-body"><!-- LLenado de la tabla atravez de un for-->
-        <table  class="table table-sm table-bordered text-center" id="mytable5">
-          <thead>
-            <tr>
-              <th scope="col">FOLIO</th>
-              <th scope="col" >FECHA</th>
-              <th scope="col" hidden>PREGUNTA 1</th>
-              <th scope="col" hidden>PREGUNTA 2</th>
-              <th scope="col" hidden>PREGUNTA 3</th>
-              <th scope="col" hidden>PREGUNTA 4</th>
-              <th scope="col" hidden>PREGUNTA 5</th>
-              <th scope="col" hidden>PREGUNTA 6</th>
-              <th scope="col" hidden>PREGUNTA 7</th>
-              <th scope="col" hidden>PREGUNTA 8</th>
-              <th scope="col" hidden>PREGUNTA 9</th>
-              <th scope="col" hidden>PREGUNTA 10</th>
-              <th scope="col" >TOTAL</th>
-              <th scope="col" >CLIENTE</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let controlService of listado | async">
-              <th scope="row">{{controlService.id}}</th>
-              <td>{{controlService.fecha}}</td>
-              <td hidden>{{controlService.pregunta1}}</td>
-              <td hidden>{{controlService.pregunta2}}</td>
-              <td hidden>{{controlService.pregunta3}}</td>
-              <td hidden>{{controlService.pregunta4}}</td>
-              <td hidden>{{controlService.pregunta5}}</td>
-              <td hidden>{{controlService.pregunta6}}</td>
-              <td hidden>{{controlService.pregunta7}}</td>
-              <td hidden>{{controlService.pregunta8}}</td>
-              <td hidden>{{controlService.pregunta9}}</td>
-              <td hidden>{{controlService.pregunta10}}</td>
-              <td hidden>{{controlService.total}}</td>
-              <td hidden>{{controlService.cliente}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+   
 
 <div class="card">
     <app-reports-c></app-reports-c>

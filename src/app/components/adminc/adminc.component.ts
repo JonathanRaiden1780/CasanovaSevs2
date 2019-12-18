@@ -10,6 +10,7 @@ import { RegistroInterface } from 'src/app/Models/registro';
 import { MetaInterface } from 'src/app/Models/Meta';
 
 import { ExportAsService, ExportAsConfig } from 'ngx-export-as';
+import { RouterLink, Router } from '@angular/router';
 
 @Component({
   selector: 'app-adminc',
@@ -20,8 +21,8 @@ export class AdmincComponent implements OnInit {
   constructor(
    private encuestaex: EncuestaService,
    private afs: AngularFirestore,
-   private exportAsService: ExportAsService,
-   private authservice: AuthService
+   private authservice: AuthService,
+   private router: Router
  ) {
 
   
@@ -66,12 +67,6 @@ export class AdmincComponent implements OnInit {
  // Variables
  listado: any;
  
-
-
- config: ExportAsConfig = {
-   type: 'pdf',
-   elementId: 'mytable5',
- };
 
 
  ens: string;
@@ -305,7 +300,7 @@ otroget(){
  vas: any[];
  getData1(): any  {
 return  this.encuestaex.getitemallC().subscribe(x => {
- this.vas = x.filter(x=>x.ubicacion == 'Centenario' && x.contestada == true); 
+ this.vas = x.filter(x=>x.ubicacion  == 'Centenario' && x.contestada == true); 
  this.rows1 = this.vas;
  return this.vas;
   });
@@ -320,15 +315,10 @@ return  this.encuestaex.getitemallC().subscribe(x => {
    this.encuestaex.addMetaC(value); 
    this.metass = this.meta;
  }
- exportAs(type) {
-   var x = true;
-  this.listado = this.encuestaex.getAllEncuestaexCen(x); /// aqui esta el problema <---------------------------------------------------------------------
-  this.exports(type);
+ export() {
+  this.router.navigate(['/dashboardt']);
 }
 
- exports(type) {
-  this.config.type = type;
-  this.exportAsService.save(this.config, 'myFile');
-}
+
  
 }

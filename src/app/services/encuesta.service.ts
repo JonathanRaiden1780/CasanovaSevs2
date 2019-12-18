@@ -456,9 +456,30 @@ getAllEncuestaexCen(x:boolean): Observable<EncuestaexInterface[]> {
   }));
   return this.Encuestaexes;
 }
- 
+getitemallV(): Observable<EncuestaexInterface[]> {
+  this.Encuestaexes = this.typeCollection.snapshotChanges()
+  .pipe(map(changes => {
+    return changes.map(action => {
+      const data = action.payload.doc.data() as EncuestaexInterface;
+      // data.id = action.payload.doc.id;
+      return data;
+    });
+  }));
+  return this.Encuestaexes;
+}
  getitemc(): Observable<EncuestaexInterface[]> {
   this.Encuestaexes = this.typeCollectionC.snapshotChanges()
+  .pipe(map(changes => {
+    return changes.map(action => {
+      const data = action.payload.doc.id as EncuestaexInterface;
+      // data.id = action.payload.doc.id;
+      return data;
+    });
+  }));
+  return this.Encuestaexes;
+}
+getitemv(): Observable<EncuestaexInterface[]> {
+  this.Encuestaexes = this.typeCollection.snapshotChanges()
   .pipe(map(changes => {
     return changes.map(action => {
       const data = action.payload.doc.id as EncuestaexInterface;

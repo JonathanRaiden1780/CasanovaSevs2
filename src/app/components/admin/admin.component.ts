@@ -7,6 +7,7 @@ import { faArchive, faVoteYea, faBoxes, faStar, faTrophy, faThumbsUp, faThumbsDo
 import { AuthService } from 'src/app/services/auth.service';
 import { RegistroInterface } from 'src/app/Models/registro';
 import { MetaInterface } from 'src/app/Models/Meta';
+import { Router } from '@angular/router';
  
 @Component({
  selector: 'app-admin',
@@ -16,14 +17,12 @@ import { MetaInterface } from 'src/app/Models/Meta';
 export class AdminComponent implements OnInit {
  constructor(
    private encuestaex: EncuestaService,
-   private encuestas: EncuestaService,
    private afs: AngularFirestore,
-   private authservice: AuthService
+   private authservice: AuthService,
+   private router: Router
  ) {
   
-   this.listadoEncu = encuestas.getAllEncuestaex();
-   this.listadoEncuestaex = this.encuestaex.getAllEncuestaex();
-   let pruebasva = this.encuestaex.getAllEncuestaex();
+
    //get all regis
    this.encuestaex.getitem().subscribe(id => this.list = id as Array<string>);
    //get rep
@@ -67,7 +66,7 @@ export class AdminComponent implements OnInit {
  listrep: string[];
  listp1mb: string[];
 
- rows1: any;
+ public rows1: any[];
  colums: any;
 
 minter: MetaInterface;
@@ -286,11 +285,14 @@ arras( x: EncuestaexInterface) {
 metad(x: MetaInterface) {
  this.metass = x.meta;
 }
- getData1() {
-   this.afs.collection('type').valueChanges().subscribe((encuesta) => {
-     this.rows1 = encuesta ;
-   });
- }
+vas: any[];
+getData1(): any  {
+  return  this.encuestaex.getitemallV().subscribe(x => {
+   this.vas = x.filter(x=>x.ubicacion == 'Viga' && x.contestada == true); 
+   this.rows1 = this.vas;
+   return this.vas;
+    });
+   }
  metaprom(x: MetaInterface) {
    x.meta = this.metass;
    x.Promgen = (this.Promedio1 + this.Promedio2 + this.Promedio3);
@@ -303,5 +305,7 @@ metad(x: MetaInterface) {
    this.metass = this.meta;
    // window.location.reload();
  }
- 
+ export() {
+  this.router.navigate(['/dashboardt']);
+}
 }
