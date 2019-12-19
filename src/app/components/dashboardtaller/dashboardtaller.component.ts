@@ -83,63 +83,7 @@ ubi:string;
   this.sumarep7 = 0;
   this.sumarep8 = 0;
   
-    this.controlService.getitemc().subscribe(id => this.list = id as Array<string>);
-    this.controlService.getitemv().subscribe(id => this.listv = id as Array<string>);
 
-    this.controlService.getitemcoll1mb().subscribe(id => this.listp1mb = id as Array<string>);
-   this.controlService.getitemcoll1b().subscribe(id =>  this.listp1b = id as Array<string>);
-   this.controlService.getitemcoll1r().subscribe(id =>  this.listp1r = id as Array<string>);
-   this.controlService.getitemcoll1m().subscribe(id =>  this.listp1m = id as Array<string>);
-   this.controlService.getitemcoll1mm().subscribe(id => this.listp1mm = id as Array<string>);
-
-   this.controlService.getitemcoll2mb().subscribe(id => this.listp2mb = id as Array<string>);
-   this.controlService.getitemcoll2b().subscribe(id =>  this.listp2b = id as Array<string>);
-   this.controlService.getitemcoll2r().subscribe(id =>  this.listp2r = id as Array<string>);
-   this.controlService.getitemcoll2m().subscribe(id =>  this.listp2m = id as Array<string>);
-   this.controlService.getitemcoll2mm().subscribe(id => this.listp2mm = id as Array<string>);
-   
-   this.controlService.getitemcoll3mb().subscribe(id => this.listp3mb = id as Array<string>);
-   this.controlService.getitemcoll3b().subscribe(id =>  this.listp3b = id as Array<string>);
-   this.controlService.getitemcoll3r().subscribe(id =>  this.listp3r = id as Array<string>);
-   this.controlService.getitemcoll3m().subscribe(id =>  this.listp3m = id as Array<string>);
-   this.controlService.getitemcoll3mm().subscribe(id => this.listp3mm = id as Array<string>);
-
-   this.controlService.getitemcoll4mb().subscribe(id => this.listp4mb = id as Array<string>);
-   this.controlService.getitemcoll4b().subscribe(id =>  this.listp4b = id as Array<string>);
-   this.controlService.getitemcoll4r().subscribe(id =>  this.listp4r = id as Array<string>);
-   this.controlService.getitemcoll4m().subscribe(id =>  this.listp4m = id as Array<string>);
-   this.controlService.getitemcoll4mm().subscribe(id => this.listp4mm = id as Array<string>);
-
-   this.controlService.getitemcoll5mb().subscribe(id => this.listp5mb = id as Array<string>);
-   this.controlService.getitemcoll5b().subscribe(id =>  this.listp5b = id as Array<string>);
-   this.controlService.getitemcoll5r().subscribe(id =>  this.listp5r = id as Array<string>);
-   this.controlService.getitemcoll5m().subscribe(id =>  this.listp5m = id as Array<string>);
-   this.controlService.getitemcoll5mm().subscribe(id => this.listp5mm = id as Array<string>);
-
-   this.controlService.getitemcoll6mb().subscribe(id => this.listp6mb = id as Array<string>);
-   this.controlService.getitemcoll6b().subscribe(id =>  this.listp6b = id as Array<string>);
-   this.controlService.getitemcoll6r().subscribe(id =>  this.listp6r = id as Array<string>);
-   this.controlService.getitemcoll6m().subscribe(id =>  this.listp6m = id as Array<string>);
-   this.controlService.getitemcoll6mm().subscribe(id => this.listp6mm = id as Array<string>);
-
-   this.controlService.getitemcoll7mb().subscribe(id => this.listp7mb = id as Array<string>);
-   this.controlService.getitemcoll7b().subscribe(id =>  this.listp7b = id as Array<string>);
-   this.controlService.getitemcoll7r().subscribe(id =>  this.listp7r = id as Array<string>);
-   this.controlService.getitemcoll7m().subscribe(id =>  this.listp7m = id as Array<string>);
-   this.controlService.getitemcoll7mm().subscribe(id => this.listp7mm = id as Array<string>);
-
-   this.controlService.getitemcoll8mb().subscribe(id => this.listp8mb = id as Array<string>);
-   this.controlService.getitemcoll8b().subscribe(id =>  this.listp8b = id as Array<string>);
-   this.controlService.getitemcoll8r().subscribe(id =>  this.listp8r = id as Array<string>);
-   this.controlService.getitemcoll8m().subscribe(id =>  this.listp8m = id as Array<string>);
-   this.controlService.getitemcoll8mm().subscribe(id => this.listp8mm = id as Array<string>);
-
-   this.controlService.getitemcoll9mb().subscribe(id => this.listp9mb = id as Array<string>);
-   this.controlService.getitemcoll9r().subscribe(id => this.listp9r = id as Array<string>);
-   this.controlService.getitemcoll9mm().subscribe(id =>  this.listp9mm = id as Array<string>);
-
-   this.controlService.getitemcoll10mb().subscribe(id => this.listp10mb = id as Array<string>);
-   this.controlService.getitemcoll10mm().subscribe(id =>  this.listp10mm = id as Array<string>);
 
   }
 
@@ -151,8 +95,9 @@ ubi:string;
             if(info.ubicacion == 'Centenario'){
               this.ubi = 'Centenario';
               this.listado = this.controlService.getAllEncuestaexC();
-              this.afs.collection('typeC').doc('CE0001').valueChanges().pipe(take(1)).subscribe(res => {this.arras(res); console.log("metodo")} );
+              this.afs.collection('typeC').doc('CE0001').valueChanges().pipe(take(1)).subscribe(res => {this.arras(res); } );
               this.afs.collection('typeC').valueChanges().subscribe(values => this.contador = values.length);
+
               return this._dataService.getDocsC().subscribe(res => this.dataSource.data = res ), this.list, this.rows1;
               
               
@@ -163,6 +108,7 @@ ubi:string;
               this.listado = this.controlService.getAllEncuestaex();
               this.afs.collection('type').doc('VI0001').valueChanges().pipe(take(1)).subscribe(res => {this.arrasv(res); } );
               this.afs.collection('typeC').valueChanges().subscribe(values => this.contador = values.length);
+              
               return this._dataService.getDocsV().subscribe(res => this.dataSource.data = res );
           } else {
            // //console.log('Error de sistema: Usuario sin Permisos')
@@ -171,7 +117,130 @@ ubi:string;
     }
   });
   }
+comprobacio(){
+  if(this.ubi == 'Viga'){
+    this.getv();
+  }
+  else  if(this.ubi == 'Centenario'){
+    this.getc();
+  }
+}
+getc(){
+  this.controlService.getitemc().subscribe(id => this.list = id as Array<string>);
 
+  this.controlService.getitemcoll1mbc().subscribe(id => this.listp1mb = id as Array<string>);
+  this.controlService.getitemcoll1bc().subscribe(id =>  this.listp1b = id as Array<string>);
+  this.controlService.getitemcoll1rc().subscribe(id =>  this.listp1r = id as Array<string>);
+  this.controlService.getitemcoll1mc().subscribe(id =>  this.listp1m = id as Array<string>);
+  this.controlService.getitemcoll1mmc().subscribe(id => this.listp1mm = id as Array<string>);
+
+  this.controlService.getitemcoll2mbc().subscribe(id => this.listp2mb = id as Array<string>);
+  this.controlService.getitemcoll2bc().subscribe(id =>  this.listp2b = id as Array<string>);
+  this.controlService.getitemcoll2rc().subscribe(id =>  this.listp2r = id as Array<string>);
+  this.controlService.getitemcoll2mc().subscribe(id =>  this.listp2m = id as Array<string>);
+  this.controlService.getitemcoll2mmc().subscribe(id => this.listp2mm = id as Array<string>);
+  
+  this.controlService.getitemcoll3mbc().subscribe(id => this.listp3mb = id as Array<string>);
+  this.controlService.getitemcoll3bc().subscribe(id =>  this.listp3b = id as Array<string>);
+  this.controlService.getitemcoll3rc().subscribe(id =>  this.listp3r = id as Array<string>);
+  this.controlService.getitemcoll3mc().subscribe(id =>  this.listp3m = id as Array<string>);
+  this.controlService.getitemcoll3mmc().subscribe(id => this.listp3mm = id as Array<string>);
+
+  this.controlService.getitemcoll4mbc().subscribe(id => this.listp4mb = id as Array<string>);
+  this.controlService.getitemcoll4bc().subscribe(id =>  this.listp4b = id as Array<string>);
+  this.controlService.getitemcoll4rc().subscribe(id =>  this.listp4r = id as Array<string>);
+  this.controlService.getitemcoll4mc().subscribe(id =>  this.listp4m = id as Array<string>);
+  this.controlService.getitemcoll4mmc().subscribe(id => this.listp4mm = id as Array<string>);
+
+  this.controlService.getitemcoll5mbc().subscribe(id => this.listp5mb = id as Array<string>);
+  this.controlService.getitemcoll5bc().subscribe(id =>  this.listp5b = id as Array<string>);
+  this.controlService.getitemcoll5rc().subscribe(id =>  this.listp5r = id as Array<string>);
+  this.controlService.getitemcoll5mc().subscribe(id =>  this.listp5m = id as Array<string>);
+  this.controlService.getitemcoll5mmc().subscribe(id => this.listp5mm = id as Array<string>);
+
+  this.controlService.getitemcoll6mbc().subscribe(id => this.listp6mb = id as Array<string>);
+  this.controlService.getitemcoll6bc().subscribe(id =>  this.listp6b = id as Array<string>);
+  this.controlService.getitemcoll6rc().subscribe(id =>  this.listp6r = id as Array<string>);
+  this.controlService.getitemcoll6mc().subscribe(id =>  this.listp6m = id as Array<string>);
+  this.controlService.getitemcoll6mmc().subscribe(id => this.listp6mm = id as Array<string>);
+
+  this.controlService.getitemcoll7mbc().subscribe(id => this.listp7mb = id as Array<string>);
+  this.controlService.getitemcoll7bc().subscribe(id =>  this.listp7b = id as Array<string>);
+  this.controlService.getitemcoll7rc().subscribe(id =>  this.listp7r = id as Array<string>);
+  this.controlService.getitemcoll7mc().subscribe(id =>  this.listp7m = id as Array<string>);
+  this.controlService.getitemcoll7mmc().subscribe(id => this.listp7mm = id as Array<string>);
+
+  this.controlService.getitemcoll8mbc().subscribe(id => this.listp8mb = id as Array<string>);
+  this.controlService.getitemcoll8bc().subscribe(id =>  this.listp8b = id as Array<string>);
+  this.controlService.getitemcoll8rc().subscribe(id =>  this.listp8r = id as Array<string>);
+  this.controlService.getitemcoll8mc().subscribe(id =>  this.listp8m = id as Array<string>);
+  this.controlService.getitemcoll8mmc().subscribe(id => this.listp8mm = id as Array<string>);
+
+  this.controlService.getitemcoll9mbc().subscribe(id => this.listp9mb = id as Array<string>);
+  this.controlService.getitemcoll9rc().subscribe(id => this.listp9r = id as Array<string>);
+  this.controlService.getitemcoll9mmc().subscribe(id =>  this.listp9mm = id as Array<string>);
+
+  this.controlService.getitemcoll10mbc().subscribe(id => this.listp10mb = id as Array<string>);
+  this.controlService.getitemcoll10mmc().subscribe(id =>  this.listp10mm = id as Array<string>);
+}
+getv(){
+  this.controlService.getitemv().subscribe(id => this.listv = id as Array<string>);
+
+  this.controlService.getitemcoll1mb().subscribe(id => this.listp1mb = id as Array<string>);
+  this.controlService.getitemcoll1b().subscribe(id =>  this.listp1b = id as Array<string>);
+  this.controlService.getitemcoll1r().subscribe(id =>  this.listp1r = id as Array<string>);
+  this.controlService.getitemcoll1m().subscribe(id =>  this.listp1m = id as Array<string>);
+  this.controlService.getitemcoll1mm().subscribe(id => this.listp1mm = id as Array<string>);
+
+  this.controlService.getitemcoll2mb().subscribe(id => this.listp2mb = id as Array<string>);
+  this.controlService.getitemcoll2b().subscribe(id =>  this.listp2b = id as Array<string>);
+  this.controlService.getitemcoll2r().subscribe(id =>  this.listp2r = id as Array<string>);
+  this.controlService.getitemcoll2m().subscribe(id =>  this.listp2m = id as Array<string>);
+  this.controlService.getitemcoll2mm().subscribe(id => this.listp2mm = id as Array<string>);
+  
+  this.controlService.getitemcoll3mb().subscribe(id => this.listp3mb = id as Array<string>);
+  this.controlService.getitemcoll3b().subscribe(id =>  this.listp3b = id as Array<string>);
+  this.controlService.getitemcoll3r().subscribe(id =>  this.listp3r = id as Array<string>);
+  this.controlService.getitemcoll3m().subscribe(id =>  this.listp3m = id as Array<string>);
+  this.controlService.getitemcoll3mm().subscribe(id => this.listp3mm = id as Array<string>);
+
+  this.controlService.getitemcoll4mb().subscribe(id => this.listp4mb = id as Array<string>);
+  this.controlService.getitemcoll4b().subscribe(id =>  this.listp4b = id as Array<string>);
+  this.controlService.getitemcoll4r().subscribe(id =>  this.listp4r = id as Array<string>);
+  this.controlService.getitemcoll4m().subscribe(id =>  this.listp4m = id as Array<string>);
+  this.controlService.getitemcoll4mm().subscribe(id => this.listp4mm = id as Array<string>);
+
+  this.controlService.getitemcoll5mb().subscribe(id => this.listp5mb = id as Array<string>);
+  this.controlService.getitemcoll5b().subscribe(id =>  this.listp5b = id as Array<string>);
+  this.controlService.getitemcoll5r().subscribe(id =>  this.listp5r = id as Array<string>);
+  this.controlService.getitemcoll5m().subscribe(id =>  this.listp5m = id as Array<string>);
+  this.controlService.getitemcoll5mm().subscribe(id => this.listp5mm = id as Array<string>);
+
+  this.controlService.getitemcoll6mb().subscribe(id => this.listp6mb = id as Array<string>);
+  this.controlService.getitemcoll6b().subscribe(id =>  this.listp6b = id as Array<string>);
+  this.controlService.getitemcoll6r().subscribe(id =>  this.listp6r = id as Array<string>);
+  this.controlService.getitemcoll6m().subscribe(id =>  this.listp6m = id as Array<string>);
+  this.controlService.getitemcoll6mm().subscribe(id => this.listp6mm = id as Array<string>);
+
+  this.controlService.getitemcoll7mb().subscribe(id => this.listp7mb = id as Array<string>);
+  this.controlService.getitemcoll7b().subscribe(id =>  this.listp7b = id as Array<string>);
+  this.controlService.getitemcoll7r().subscribe(id =>  this.listp7r = id as Array<string>);
+  this.controlService.getitemcoll7m().subscribe(id =>  this.listp7m = id as Array<string>);
+  this.controlService.getitemcoll7mm().subscribe(id => this.listp7mm = id as Array<string>);
+
+  this.controlService.getitemcoll8mb().subscribe(id => this.listp8mb = id as Array<string>);
+  this.controlService.getitemcoll8b().subscribe(id =>  this.listp8b = id as Array<string>);
+  this.controlService.getitemcoll8r().subscribe(id =>  this.listp8r = id as Array<string>);
+  this.controlService.getitemcoll8m().subscribe(id =>  this.listp8m = id as Array<string>);
+  this.controlService.getitemcoll8mm().subscribe(id => this.listp8mm = id as Array<string>);
+
+  this.controlService.getitemcoll9mb().subscribe(id => this.listp9mb = id as Array<string>);
+  this.controlService.getitemcoll9r().subscribe(id => this.listp9r = id as Array<string>);
+  this.controlService.getitemcoll9mm().subscribe(id =>  this.listp9mm = id as Array<string>);
+
+  this.controlService.getitemcoll10mb().subscribe(id => this.listp10mb = id as Array<string>);
+  this.controlService.getitemcoll10mm().subscribe(id =>  this.listp10mm = id as Array<string>);
+}
  /* 
   getData1() {
 
@@ -232,6 +301,7 @@ arrasv( x: EncuestaexInterface) {
     this.afs.collection('type').doc(this.ens).valueChanges().pipe(take(1)).subscribe(res => {this.arrassv(res); } );
     this.afs.collection('type').doc(this.ens).valueChanges().pipe(take(1)).subscribe(res => {this.arrassv2(res); } );
   }
+  this.comprobacio();
 }
  arras( x: EncuestaexInterface) {
   for (let i = 0 ; i < this.contador ; i++ ) {
@@ -239,7 +309,7 @@ arrasv( x: EncuestaexInterface) {
     this.afs.collection('typeC').doc(this.ens).valueChanges().pipe(take(1)).subscribe(res => {this.arrass(res); } );
     this.afs.collection('typeC').doc(this.ens).valueChanges().pipe(take(1)).subscribe(res => {this.arrass2(res); } );
   }
-  
+  this.comprobacio();
  }
     // Metodo para acumular sumatoria de todas las encuestas
     arrass(x: EncuestaexInterface): number {
@@ -249,9 +319,7 @@ arrasv( x: EncuestaexInterface) {
         const contadortemp = 1
         this.contadorreal = contadortemp + this.contadorreal;
         this.prome = (this.suma / this.contadorreal).toFixed(2);
-        console.log("Promedio Cente", this.prome);
-        console.log("Contador Cente", this.contadorreal);
-
+       
 
       }
       return this.suma;
@@ -263,9 +331,7 @@ arrasv( x: EncuestaexInterface) {
         const contadortemp = 1
         this.contadorreal = contadortemp + this.contadorreal;
         this.prome = (this.suma / this.contadorreal).toFixed(2);
-        console.log("Promedio Viga", this.prome);
-        console.log("Contador Viga", this.contadorreal);
-
+       
       }
       return this.suma;
     }
@@ -425,6 +491,8 @@ prom2(x: number) {
 
     this.cp10mb =this.listp10mb.length;
     this.cp10mm =this.listp10mm.length;
+
+    this.myFunction();
 }
 
 
@@ -447,27 +515,12 @@ prom2(x: number) {
 
   myFunction() {
     // Declare variables
-    let input, filter, table, tr, td, i, txtValue, input2, filter2, input3, filter3;
+    let table, tr, td, i, txtValue, input3, filter3;
     input3 = "true";
     filter3 = input3;
-
-    input = document.getElementById('inputfe');
-    filter = input.value;
-    input2 = document.getElementById('inputfs');
-    filter2 = input2.value;
     table = document.getElementById('mytable5');
     tr = table.getElementsByTagName('tr');
-/*     for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName('td')[1];
-      if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue >= filter && txtValue <= filter2 && txtValue.indexOf(filter3) > -1 ) {
-          tr[i].style.display = '';
-        } else {
-          tr[i].style.display = 'none';
-        }
-      }
-    } */
+
     for (i = 0; i < tr.length; i++) {
       td = tr[i].getElementsByTagName('td')[12];
       if (td) {

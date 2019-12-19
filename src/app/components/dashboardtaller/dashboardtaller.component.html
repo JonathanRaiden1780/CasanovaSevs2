@@ -107,8 +107,7 @@
                 </div>
               </div>
             <div class="col-md-2">
-                <button type="submit" class="btn btn-primary btn-block btn-lg mb-2 mt-4" style="font-size: 1rem" value="Guardar" (click)="myFunction()"><strong>Generar Reporte</strong></button>
-              <button class="btn btn-primary btn-block" style="font-size: 1rem" (click)="exportAs('cvs')"><strong>Exportar Excel</strong></button>
+                <button type="submit" class="btn btn-primary btn-block btn-lg mb-2 mt-4" style="font-size: 1rem" value="Guardar" (click)="exportAs('cvs')"><strong>Generar Reporte</strong></button>
             </div>
           </div>
         </form>
@@ -165,53 +164,54 @@
               <td>Conteo</td>
               <td>Conteo</td> 
               <td>{{prome}}</td>
-           
+            </tr>
+            <tr>
               <th scope="row">N/A</th>
-              <td >{{fechan}}</td>
-              <td >{{fechan}}</td>
-              <td >{{fechan}}</td>
-              <td >{{fechan}}</td>
-              <td >{{fechan}}</td>
-              <td >{{fechan}}</td>
-              <td >{{fechan}}</td>
-              <td >{{fechan}}</td>
-              <td >{{fechan}}</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
               <td >{{cp9r}}</td>
               <td >/</td>
-              <td >{{fechan}}</td>
-              <td >{{fechan}}</td>
-           
+            
+            </tr>
+            <tr>
               <th scope="row">SI</th>
-              <td>{{fechan}}</td>
-              <td >{{fechan1}}</td>
-              <td >{{fechan2}}</td>
-              <td >{{fechan3}}</td>
-              <td >{{fechan4}}</td>
-              <td >{{fechan5}}</td>
-              <td >{{fechan6}}</td>
-              <td >{{fechan7}}</td>
-              <td >{{fechan8}}</td>
-              <td >{{cp9mm}}</td>
-              <td >{{cp10mm}}</td>
-              <td >{{fechan}}</td>
-              <td >{{fechan}}</td>
-           
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td >{{cp9mb}}</td>
+              <td >{{cp10mb}}</td>
+             
+            </tr>
+            <tr>
               <th scope="row">NO</th>
-              <td>{{fechan}}</td>
-              <td >{{fechan1}}</td>
-              <td >{{fechan2}}</td>
-              <td >{{fechan3}}</td>
-              <td >{{fechan4}}</td>
-              <td >{{fechan5}}</td>
-              <td >{{fechan6}}</td>
-              <td >{{fechan7}}</td>
-              <td >{{fechan8}}</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
               <td >{{cp9mm}}</td>
               <td >{{cp10mm}}</td>
-              <td >{{fechan}}</td>
-              <td >{{fechan}}</td>
-              
-              <th scope="row">Ponderacion</th>
+            
+            </tr>
+            <tr>
+              <th scope="row">Ponderación</th>
               <td>{{das}}</td>
               <td>20/10</td>
               <td>50/10</td>
@@ -221,22 +221,78 @@
               <td>20/10</td>
               <td>20/10</td>
               <td>20/10</td>
-             
+            </tr>
+            <tr>
               <th scope="row">20</th>
-              <td>{{fechan}}</td>
-              <td >{{fechan1}}</td>
-              <td >{{fechan2}}</td>
-              <td >{{fechan3}}</td>
-              <td >{{fechan4}}</td>
-              <td >{{fechan5}}</td>
-              <td >{{fechan6}}</td>
-              <td >{{fechan7}}</td>
-              <td >{{fechan8}}</td>
-              <td >{{cp9mm}}</td>
-              <td >{{cp10mm}}</td>
-              <td >{{fechan}}</td>
-              <td >{{fechan}}</td>
-
+              <td>-</td>
+              <td >{{cp1mm}}</td>
+              <td>-</td>
+              <td >{{cp3mm}}</td>
+              <td >{{cp4mm}}</td>             
+              <td >{{cp5mm}}</td>
+              <td >{{cp6mm}}</td>
+              <td >{{cp7mm}}</td>
+              <td >{{cp8mm}}</td>
+            </tr>
+            <tr>
+              <th scope="row">40</th>
+              <td>-</td>
+              <td >{{cp1m}}</td>
+              <td >-</td>
+              <td >{{cp3m}}</td>
+              <td >{{cp4m}}</td>             
+              <td >{{cp5m}}</td>
+              <td >{{cp6m}}</td>
+              <td >{{cp7m}}</td>
+              <td >{{cp8m}}</td>
+            </tr>
+            <tr>
+              <th scope="row">50</th>
+              <td>-</td>
+              <td>-</td>
+              <td >{{cp2mm}}</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <th scope="row">60</th>
+              <td>-</td>
+              <td >{{cp1r}}</td>
+              <td>-</td>
+              <td >{{cp3r}}</td>
+              <td >{{cp4r}}</td>             
+              <td >{{cp5r}}</td>
+              <td >{{cp6r}}</td>
+              <td >{{cp7r}}</td>
+              <td >{{cp8r}}</td>
+            </tr>
+            <tr>
+              <th scope="row">80</th>
+              <td>-</td>
+              <td >{{cp1b}}</td>
+              <td>-</td>
+              <td >{{cp3b}}</td>
+              <td >{{cp4b}}</td>             
+              <td >{{cp5b}}</td>
+              <td >{{cp6b}}</td>
+              <td >{{cp7b}}</td>
+              <td >{{cp8b}}</td>
+            </tr>
+            <tr>
+              <th scope="row">100</th>
+              <td>-</td>
+              <td >{{cp1mb}}</td>
+              <td >{{cp2mb}}</td>
+              <td >{{cp3mb}}</td>
+              <td >{{cp4mb}}</td>             
+              <td >{{cp5mb}}</td>
+              <td >{{cp6mb}}</td>
+              <td >{{cp7mb}}</td>
+              <td >{{cp8mb}}</td>
             </tr>
           </tfoot>
         </table>
