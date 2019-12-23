@@ -94,7 +94,7 @@ ubi:string;
 ////console.log('usuario desde lvl:', info);
             if(info.ubicacion == 'Centenario'){
               this.ubi = 'Centenario';
-              this.listado = this.controlService.getAllEncuestaexC();
+              this.listado = this.controlService.getAllEncuestaexCen(true);
               this.afs.collection('typeC').doc('CE0001').valueChanges().pipe(take(1)).subscribe(res => {this.arras(res); } );
               this.afs.collection('typeC').valueChanges().subscribe(values => this.contador = values.length);
 
@@ -122,7 +122,7 @@ comprobacio(){
     this.getv();
   }
   else  if(this.ubi == 'Centenario'){
-    this.getc();
+   // this.getc();
   }
 }
 getc(){
@@ -300,6 +300,7 @@ arrasv( x: EncuestaexInterface) {
     this.ens = this.listv[i] as string;
     this.afs.collection('type').doc(this.ens).valueChanges().pipe(take(1)).subscribe(res => {this.arrassv(res); } );
     this.afs.collection('type').doc(this.ens).valueChanges().pipe(take(1)).subscribe(res => {this.arrassv2(res); } );
+    console.log('promedios')
   }
   this.comprobacio();
 }
@@ -309,7 +310,9 @@ arrasv( x: EncuestaexInterface) {
     this.afs.collection('typeC').doc(this.ens).valueChanges().pipe(take(1)).subscribe(res => {this.arrass(res); } );
     this.afs.collection('typeC').doc(this.ens).valueChanges().pipe(take(1)).subscribe(res => {this.arrass2(res); } );
   }
-  this.comprobacio();
+ // this.comprobacio();
+  console.log('promedios')
+
  }
     // Metodo para acumular sumatoria de todas las encuestas
     arrass(x: EncuestaexInterface): number {
@@ -320,7 +323,7 @@ arrasv( x: EncuestaexInterface) {
         this.contadorreal = contadortemp + this.contadorreal;
         this.prome = (this.suma / this.contadorreal).toFixed(2);
        
-
+        console.log('final metodo')
       }
       return this.suma;
     }
@@ -419,7 +422,7 @@ arrasv( x: EncuestaexInterface) {
     this.sumarep8 = this.sumare8 + this.sumarep8;
     this.sumarep = x.total;
     this.sumareps = this.sumarep + this.sumareps;
-  
+  console.log('funcion recolecta')
     this.prom2(this.sumareps);
     return  this.sumarep1, this.sumarep2, this.sumarep3, this.sumarep4 , this.sumarep5 , this.sumarep6 , this.sumarep7, this.sumarep8, this.sumareps;
   }
@@ -493,6 +496,7 @@ prom2(x: number) {
     this.cp10mm =this.listp10mm.length;
 
     this.myFunction();
+    console.log('paso a funcion de filtro')
 }
 
 
