@@ -422,6 +422,19 @@ getAllEncuestaexCen(x:boolean): Observable<EncuestaexInterface[]> {
   }));
   return this.Encuestaexes;
 }
+getAllEncuestaexvig(x:boolean): Observable<EncuestaexInterface[]> {
+  this.typeCollections = this.afs.collection('type', ref => ref.where("contestada","==",x));
+  this.Encuestaexes = this.typeCollections.snapshotChanges()
+  .pipe(map(changes => {
+    return changes.map(action => {
+      const data = action.payload.doc.data() as EncuestaexInterface;
+      data.id = action.payload.doc.id;
+      return data;
+    });
+  }));
+  return this.Encuestaexes;
+}
+
  getAllEncuesta(ide:string, ids:string): Observable<EncuestaexInterface[]> {
    this.typeCollections = this.afs.collection('type', ref => ref.where("fechaent",">=",ide).where("fechaent","<=",ids));
    this.Encuestaexes = this.typeCollections.snapshotChanges()

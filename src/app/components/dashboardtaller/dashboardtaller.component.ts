@@ -89,7 +89,7 @@ ubi:string;
             }
             else if (info.ubicacion === 'Viga') {
               this.ubi = 'Viga';
-              this.listado = this.controlService.getAllEncuestaex();
+              this.listado = this.controlService.getAllEncuestaexvig(true);
               return this._dataService.getDocsV().subscribe(res => this.dataSource.data = res );
           } else {
            // //console.log('Error de sistema: Usuario sin Permisos')
