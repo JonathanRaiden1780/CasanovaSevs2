@@ -84,8 +84,7 @@ ubi:string;
 ////console.log('usuario desde lvl:', info);
             if(info.ubicacion == 'Centenario'){
               this.ubi = 'Centenario';
-            //  this.listado = this.controlService.getAllEncuestaexCen(true);
-              this.getAllEncuestaexCen1(true);
+             this.listado = this.controlService.getAllEncuestaexCen(true);
               return this._dataService.getDocsC().subscribe(res => this.dataSource.data = res );
             }
             else if (info.ubicacion === 'Viga') {
@@ -99,25 +98,7 @@ ubi:string;
     }
   });
   }
-  num:number;
-  getAllEncuestaexCen1(x:boolean): Observable<EncuestaexInterface[]> {
-    this.typeCollections = this.afs.collection('typeC', ref => ref.where("contestada","==",x));
-    this.Encuestaexes = this.typeCollections.snapshotChanges()
-    .pipe(map(changes => {
-      return changes.map(action => {
-        const data = action.payload.doc.data() as EncuestaexInterface;
-        this.num = action.payload.doc.id.length;
-        this.get();
-        return data;
-      });
-    }));
-    return this.Encuestaexes;
-  }
-  get(){
-    console.log(this.rows1.length)
-    console.log(this.num)
-  }
- /* 
+  /* 
   getData1() {
 
 if(this.ubi == 'Centenario'){
@@ -167,26 +148,30 @@ else if(this.ubi == 'Viga'){
   }
 
   myFunction() {
+    
     // Declare variables
-    let table, tr, td, i, txtValue, input3, filter3;
-    input3 = "true";
-    filter3 = input3;
+    let input, filter, table, tr, td, i, txtValue, input2, filter2;
+
+    input = document.getElementById('inputfe');
+    filter = input.value;
+    input2 = document.getElementById('inputfs');
+    filter2 = input2.value;
     table = document.getElementById('mytable5');
     tr = table.getElementsByTagName('tr');
-
     for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName('td')[12];
+      td = tr[i].getElementsByTagName('td')[0];
       if (td) {
         txtValue = td.textContent || td.innerText;
-        if (txtValue.indexOf(filter3) > -1 ) {
+        if (txtValue >= filter && txtValue <= filter2 ) {
           tr[i].style.display = '';
         } else {
           tr[i].style.display = 'none';
         }
       }
     }
+
   }
-  /* myFunction2() {
+   /* myFunction2() {
     // Declare variables
     let input, filter, table, tr, td, i, txtValue;
     input = "true";
