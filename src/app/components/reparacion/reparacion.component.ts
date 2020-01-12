@@ -30,12 +30,17 @@ export class ReparacionComponent implements OnInit {
     private route: ActivatedRoute,
     private afs: AngularFirestore,
     private af: AngularFireDatabase
-  ) {
+  ) 
+  
+  {
     const today = new Date();
     this.EncuestaexCollection = this.afs.collection('Contadores', ref => ref);
     this.mod.fecha = today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2);
-   }
+    this.mod.mesnumero =  today.getMonth()+1;
+    this.mod.año =  today.getFullYear();
 
+   }
+   meses:string[] = ["Mes","Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"]
   faTired = faTired;
   faSadTear = faSadTear;
   faGrin = faGrin;
@@ -107,7 +112,7 @@ export class ReparacionComponent implements OnInit {
     pregunta10: '',
     total: 0
   };
-
+  fechareporte: string;
   public isYes = true;
   public isNo = true;
   proms: string;
@@ -135,9 +140,17 @@ export class ReparacionComponent implements OnInit {
       sevenFormGroup: ['', Validators.required]
     });
     this.onChange();
+    for(var mc=1; mc<=12; mc++){
+      if(this.mod.mesnumero == mc){
+        this.mod.mes = this.meses[mc];
+      }
+    }
+    this.fechareporte = this.mod.mes+this.mod.año;
+   
   }
   onGuardarEncuesta({value}: {value: EncuestaexInterface}) {
     this.proms = this.y.toFixed(2);
+    
     value.id = this.ident;
     value.pregunta1 = this.model.p1;
     value.pregunta2 = this.model.p2;
@@ -154,7 +167,7 @@ export class ReparacionComponent implements OnInit {
     value.contestada = true;
     value.fecha = formatDate(new Date(), 'dd/MM/yyyy hh:mm:ss a', 'en');
     value.total = +this.proms;
-    
+    value.fechareporte = this.fechareporte;
     this.totalnot = value.total;
   
     if(this.ident.includes('VI') == true){

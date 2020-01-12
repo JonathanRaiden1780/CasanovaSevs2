@@ -156,20 +156,14 @@ else if(this.ubi == 'Viga'){
     filter = input.value;
     input2 = document.getElementById('inputfs');
     filter2 = input2.value;
-    table = document.getElementById('mytable5');
-    tr = table.getElementsByTagName('tr');
-    for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName('td')[0];
-      if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue >= filter && txtValue <= filter2 ) {
-          tr[i].style.display = '';
-        } else {
-          tr[i].style.display = 'none';
-        }
-      }
+    table = filter+filter2;
+    console.log(table)
+    if(this.ubi == 'Centenario'){
+     this.listado = this.controlService.getAllEncuestaexCenfil(true,filter);
     }
-
+    else if (this.ubi  === 'Viga') {
+      this.listado = this.controlService.getAllEncuestaexvigfil(true, filter);
+  } 
   }
    /* myFunction2() {
     // Declare variables

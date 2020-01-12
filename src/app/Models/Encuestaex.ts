@@ -20,4 +20,6 @@ export interface EncuestaexInterface{
     contestada?:boolean;
     validacion?: string;
     ubicacion?: string;
+    fechareporte?:string;
+
 }
